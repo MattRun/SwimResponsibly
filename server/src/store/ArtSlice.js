@@ -4,7 +4,7 @@ import axios from "axios"
 export const fetchAllArt = createAsyncThunk(
     'allArt', async () => {
         try {
-            const {data} = await axios.get('/api/art')
+            const {data} = await axios.get('/api/products')
             return data
         } catch(err) {
             console.error(err)

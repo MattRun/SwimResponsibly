@@ -24,6 +24,7 @@ const AllProduct = ()=> {
                         <div key={Product.id}>
                             <Link to ={`/products/${Product.id}`}>
                                 <h1>{Product.name}</h1>
+                                <h1>{Product.price}</h1>
                                 <img className ="productThumbnail"src ={Product.imageURL}/>
                             </Link>
                                
