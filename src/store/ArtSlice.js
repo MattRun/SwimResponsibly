@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-export const fetchAllArt = createAsyncThunk(
-    'allArt', async () => {
+export const fetchAllProducts = createAsyncThunk(
+    'allProducts', async () => {
         try {
-            const {data} = await axios.get('/api/art')
+            const {data} = await axios.get('/api/products')
             return data
         } catch(err) {
             console.error(err)
@@ -12,20 +12,20 @@ export const fetchAllArt = createAsyncThunk(
     }
 )
 
-const allArt = createSlice({
-    name: 'art',
+const allProducts = createSlice({
+    name: 'products',
     initialState: {
-        artList: []
+        productsList: []
     },
 
     extraReducers: (builder) => {
-        builder.addCase(fetchAllArt.fulfilled, (state, action) => {
-            state.artList = action.payload
+        builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
+            state.productsList = action.payload
         }),
-        builder.addCase(fetchAllArt.rejected, (state, action) => {
+        builder.addCase(fetchAllProducts.rejected, (state, action) => {
             console.log('rejected')
         })
     }
 })
 
-export default allArt.reducer 
+export default allProducts.reducer 
