@@ -1,14 +1,23 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
+import { createSlice } from "@reduxjs/toolkit";
 
-const customerSlice = createSlice({
-  name: 'customer',
-  initialState: null,
-  reducers: {
-    setCustomer: (state, action) => action.payload,
-    clearCustomer: () => null,
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    cartItems: [],
   },
+  
+  reducers: {
+    addToUserCart: (state, action) => {
+      state.cartItems.push(action.payload);
+    },
+    removeFromUserCart: (state, action) => {
+      state.cartItems = state.cartItems.filter(item => item.id !== action.payload);
+    },
+    clearUserCart: (state) => {
+      state.cartItems = [];
+    }
+  }
 });
 
-export const { setCustomer, clearCustomer } = customerSlice.actions;
-export default customerSlice.reducer;
+export const { actions: userActions } = userSlice;
+export default userSlice.reducer;

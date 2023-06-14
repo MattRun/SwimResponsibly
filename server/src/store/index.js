@@ -1,2 +1,2 @@
-import allArt from "./ArtSlice"
-import singleArt from "./singleArtSlice"
+import allProducts from "./ProductsSlice"
+import singleProduct from "./singlProductSlice"
