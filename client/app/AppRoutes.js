@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
+import AllProduct from '../../src/components/AllProduct';
 
 /**
  * COMPONENT
@@ -37,6 +38,10 @@ const AppRoutes = () => {
           <Route
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
+          />
+          <Route
+          path='/allproducts'
+          element={<AllProduct />}
           />
         </Routes>
       )}

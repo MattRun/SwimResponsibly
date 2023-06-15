@@ -14,9 +14,7 @@ export const fetchAllProducts = createAsyncThunk(
 
 const allProducts = createSlice({
     name: 'products',
-    initialState: {
-        productsList: []
-    },
+    initialState: [],
 
     extraReducers: (builder) => {
         builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
