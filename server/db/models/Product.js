@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db.js");
 
-module.exports = db.define("Product", {
+const Product = db.define("Product", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -19,3 +19,5 @@ module.exports = db.define("Product", {
     defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',
   }
 });
+
+module.exports = Product
