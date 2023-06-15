@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-export const fetchSingleArt = createAsyncThunk(
+export const fetchSingleProduct = createAsyncThunk(
     'singeArt', async(artId) => {
         try {
             const { data } = await axios.get(`/api/art${artId}`)
@@ -18,10 +18,10 @@ const singleArt = createSlice({
         singleArt: {}
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchSingleArt.fulfilled, (state, action) => {
+        builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
             state.singleArt = action.payload
         }),
-        builder.addCase(fetchSingleArt.rejected, (state, action) => {
+        builder.addCase(fetchSingleProduct.rejected, (state, action) => {
             console.log('rejected')
         })
     }
