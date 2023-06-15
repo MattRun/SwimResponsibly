@@ -26,3 +26,5 @@ const singleArt = createSlice({
         })
     }
 })
+
+export default singleArt.reducer
