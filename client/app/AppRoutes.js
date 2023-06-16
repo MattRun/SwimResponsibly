@@ -5,6 +5,10 @@ import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
 import AllProduct from '../../src/components/AllProduct';
+import Navigation from '../features/navbar/Navigation';
+import Navbar from '../features/navbar/Navbar'
+import Home2 from '../features/home/home2'
+import { SingleProduct } from '../../src/components';
 
 /**
  * COMPONENT
@@ -42,6 +46,10 @@ const AppRoutes = () => {
           <Route
           path='/allproducts'
           element={<AllProduct />}
+          />,
+          <Route
+          path='/allproducts:productId'
+          element={<SingleProduct />}
           />
         </Routes>
       )}

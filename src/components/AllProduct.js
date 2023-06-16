@@ -7,9 +7,9 @@ const AllProduct = ()=> {
 
     const AllProducts = useSelector((state) => {
         // console.log(state.allProducts.productList)
-        return state.allArt
+        return state.products.artList
     })
-    console.log("this is all products",AllProduct)
+    console.log("this is all products", AllProducts)
 
     useEffect(() => {
         dispatch(fetchAllProducts())
@@ -19,19 +19,19 @@ const AllProduct = ()=> {
         <div>
             <h1>List of All Products</h1>
             {
-                // AllProducts.map((Product) =>{
-                //     return(
-                //         <div key={Product.id}>
-                //             <Link to ={`/products/${Product.id}`}>
-                //                 <h1>{Product.name}</h1>
-                //                 <h1>{Product.price}</h1>
-                //                 <img className ="productThumbnail"src ={Product.imageURL}/>
-                //             </Link>
+                AllProducts && AllProducts.map((Product) =>{
+                    return(
+                        <div key={Product.id}>
+                            <Link to ={`/products/${Product.id}`}>
+                                <h1>{Product.name}</h1>
+                                <h1>{Product.price}</h1>
+                                <img className ="productThumbnail"src ={Product.imageURL}/>
+                            </Link>
                                
-                //                 {/* <button onClick={()=>purchaseProduct(Product.id)}>purchase/addToCart</button> */}
-                //         </div>
-                //         )
-                //     })
+                                {/* <button onClick={()=>purchaseProduct(Product.id)}>purchase/addToCart</button> */}
+                        </div>
+                        )
+                    })
                 }
             </div>
         )
@@ -39,3 +39,4 @@ const AllProduct = ()=> {
 
 
 export default AllProduct
+

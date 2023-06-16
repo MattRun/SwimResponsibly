@@ -14,11 +14,13 @@ export const fetchAllProducts = createAsyncThunk(
 
 const allProducts = createSlice({
     name: 'products',
-    initialState: [],
+    initialState: {
+        artList: [],
+    },
 
     extraReducers: (builder) => {
         builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
-            state.productsList = action.payload
+            state.artList = action.payload
         }),
         builder.addCase(fetchAllProducts.rejected, (state, action) => {
             console.log('rejected')
