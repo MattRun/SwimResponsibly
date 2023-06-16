@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { models: { Product } } = require("../db"); // Assuming the Product model is exported from the models file
+const { models:{Product } }= require("../db"); // Assuming the Product model is exported from the models file
 
 // GET /api/shop
 router.get("/", async (req, res, next) => {

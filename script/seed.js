@@ -15,6 +15,7 @@ async function seed() {
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
   ])
+  console.log("Seeded Users")
 
   // Creating Products
   const products = await Promise.all([
@@ -22,42 +23,43 @@ async function seed() {
       title: 'Product 1',
       artist:"unknow",
       year:199,
-      price: 10.99,
+      price: 1099,
       description: 'This is the first product.',
+
     }),
     Product.create({ 
       title: 'Product 2',
     artist:"unknow",
     year:199,
-    price: 10.99,
+    price: 1099,
     description: 'This is the first product.',
     }),
     Product.create({ 
       title: 'Product 3',
     artist:"unknow",
     year:199,
-    price: 10.99,
+    price: 1099,
     description: 'This is the first product.',
     }),
     Product.create({
     title: 'Product 4',
     artist:"unknow",
     year:199,
-    price: 10.99,
+    price: 1099,
     description: 'This is the first product.',
     }),
     Product.create({
       title: 'Product 5',
       artist:"unknow",
       year:199,
-      price: 10.99,
+      price: 1099,
       description: 'This is the first product.',
     }),
     Product.create({
       title: 'Product 6',
       artist:"unknow",
       year:199,
-      price: 10.99,
+      price: 1099,
       description: 'This is the first product.',
     }),
   ]);
@@ -66,7 +68,7 @@ async function seed() {
 
 
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded ${products.length} products`)
+  // console.log(`seeded ${products.length} products`)
 
   console.log(`seeded successfully`)
   return {
@@ -91,7 +93,7 @@ async function runSeed() {
     await seed();
     console.log("Seeding success!");
   } catch (err) {
-    console.error("Oh noes! Something went wrong!");
+    console.error("Oh noes! Something went wrong!", err);
     process.exitCode = 1
   } finally {
     console.log('closing db connection')

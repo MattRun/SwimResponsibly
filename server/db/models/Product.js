@@ -28,7 +28,7 @@ module.exports = db.define('Product', {
     allowNull: false
   },
   price: {
-    type: Sequelize.FLOAT, 
+    type: Sequelize.INTEGER, 
     allowNull: false
   },
   imageUrl: {
