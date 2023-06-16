@@ -1,31 +1,28 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const fetchAllProducts = createAsyncThunk(
-    'allProducts', async () => {
-        try {
-            const {data} = await axios.get('/api/products')
-            return data
-        } catch(err) {
-            console.error(err)
-        }
-    }
-)
+export const fetchProducts = createAsyncThunk("shop/fetchProducts", async () => {
+  try {
+    const response = await axios.get("http://localhost:8080/api/shop"); 
+  
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch products");
+  }
+});
 
-const allProducts = createSlice({
-    name: 'products',
-    initialState: {
-        artList: [],
-    },
+const productsSlice = createSlice({
+  name: "products",
+  initialState: [],
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      return action.payload;
+    });
+  },
+});
 
-    extraReducers: (builder) => {
-        builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
-            state.artList = action.payload
-        }),
-        builder.addCase(fetchAllProducts.rejected, (state, action) => {
-            console.log('rejected')
-        })
-    }
-})
+export const selectProducts = (state) => state.products;
 
-export default allProducts.reducer 
+export default productsSlice.reducer;
