@@ -17,9 +17,9 @@ const AllProducts = () => {
   return (
     <div>
       <h1>List of All Products</h1>
-      {allProducts.map((product) => (
+      {/* {allProducts.map((product) => (
         <Product key={product.id} product={product} />
-      ))}
+      ))} */}
     </div>
   );
 };

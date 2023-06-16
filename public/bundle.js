@@ -6457,12 +6457,7 @@ var AllProducts = function AllProducts() {
   }, [dispatch]);
   console.log(allProducts); // Logging the products outside the JSX code
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "List of All Products"), allProducts.map(function (product) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      key: product.id,
-      product: product
-    });
-  }));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "List of All Products"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllProducts);
 
