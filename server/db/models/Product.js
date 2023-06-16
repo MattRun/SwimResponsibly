@@ -1,35 +1,42 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db.js');
 
-const Art = db.define('Product', {
-    title: {
-        type: Sequelize.STRING,
-        allowNull: false
+module.exports = db.define('Product', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
     },
-    artisit: {
-        type: Sequelize.STRING,
-        allowNull: false
+  },
+  artist: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
     },
-    year: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+  },
+  year: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
     },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    price: {
-        type: Sequelize.NUMBER,
-        allowNull: false
-    },
-    imageUrl: {
-        type: Sequelize.STRING,
-        defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',
-      },
-    sellerId: {
-        type: Sequelize.VIRTUAL,
-        allowNull: false
-    }
-})
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  price: {
+    type: Sequelize.INTEGER, 
+    allowNull: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',
+  },
+  
+ 
+});
 
-module.exports = Art
+

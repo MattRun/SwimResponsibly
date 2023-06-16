@@ -1,34 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const { models:{Product } }= require("../db"); // Assuming the Product model is exported from the models file
 
-const { Product } = require("../db");
-//pulls "Product" from models ^
-
-//this route returns all Products
+// GET /api/shop
 router.get("/", async (req, res, next) => {
-  console.log("In the backend");
-
   try {
-    const allProduct = await Product.findAll();
-
-    res.status(200).send(allProduct);
+    const allProducts = await Product.findAll();
+  
+    res.send(allProducts);
   } catch (error) {
-    next(error);
-  }
-});
-
-//this route returns a single Product
-router.get("/:id", async (req, res, next) => {
-  try {
-    const singleProductID = req.params.id;
-
-    const singleProduct = await Campuses.findByPk(singleProductID, {
-        include: [Products],
-        //eager loading^^^^
-    });
-    
-    res.send(singleProduct);
-  } catch (error) {
+    console.log(error);
     next(error);
   }
 });
