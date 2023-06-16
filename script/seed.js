@@ -19,29 +19,46 @@ async function seed() {
   // Creating Products
   const products = await Promise.all([
     Product.create({
-      name: 'Product 1',
+      title: 'Product 1',
+      artist:"unknow",
+      year:199,
+      price: 10.99,
+      description: 'This is the first product.',
+    }),
+    Product.create({ 
+      title: 'Product 2',
+    artist:"unknow",
+    year:199,
+    price: 10.99,
+    description: 'This is the first product.',
+    }),
+    Product.create({ 
+      title: 'Product 3',
+    artist:"unknow",
+    year:199,
+    price: 10.99,
+    description: 'This is the first product.',
+    }),
+    Product.create({
+    title: 'Product 4',
+    artist:"unknow",
+    year:199,
+    price: 10.99,
+    description: 'This is the first product.',
+    }),
+    Product.create({
+      title: 'Product 5',
+      artist:"unknow",
+      year:199,
       price: 10.99,
       description: 'This is the first product.',
     }),
     Product.create({
-      name: 'Product 2',
-      price: 19.99,
-      description: 'This is the second product.',
-    }),
-    Product.create({
-      name: 'Product 3',
-      price: 7.99,
-      description: 'This is the third product.',
-    }),
-    Product.create({
-      name: 'Product 4',
-      price: 14.99,
-      description: 'This is the fourth product.',
-    }),
-    Product.create({
-      name: 'Product 5',
-      price: 24.99,
-      description: 'This is the fifth product.',
+      title: 'Product 6',
+      artist:"unknow",
+      year:199,
+      price: 10.99,
+      description: 'This is the first product.',
     }),
   ]);
 
@@ -49,6 +66,8 @@ async function seed() {
 
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${products.length} products`)
+
   console.log(`seeded successfully`)
   return {
     users: {
@@ -56,7 +75,10 @@ async function seed() {
       murphy: users[1]
     }
   }
+  
 }
+// we export the seed function for testing purposes (see `./seed.spec.js`)
+module.exports = seed
 
 /*
  We've separated the `seed` function from the `runSeed` function.
@@ -64,11 +86,12 @@ async function seed() {
  The `seed` function is concerned only with modifying the database.
 */
 async function runSeed() {
-  console.log('seeding...')
+  
   try {
-    await seed()
+    await seed();
+    console.log("Seeding success!");
   } catch (err) {
-    console.error(err)
+    console.error("Oh noes! Something went wrong!");
     process.exitCode = 1
   } finally {
     console.log('closing db connection')
@@ -86,5 +109,3 @@ if (module === require.main) {
   runSeed()
 }
 
-// we export the seed function for testing purposes (see `./seed.spec.js`)
-module.exports = seed
