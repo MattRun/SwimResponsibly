@@ -6442,23 +6442,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_ArtSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/ArtSlice */ "./src/store/ArtSlice.js");
+<<<<<<< .merge_file_cdBep9
+=======
+/* harmony import */ var _Product__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product */ "./src/components/Product.js");
+>>>>>>> .merge_file_qbd2T7
 
 
 
 
-var AllProduct = function AllProduct() {
+
+var AllProducts = function AllProducts() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  var AllProducts = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    // console.log(state.allProducts.productList)
-    return state.products.artList;
-  });
-  console.log("this is all products", AllProducts);
+  var allProducts = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_store_ArtSlice__WEBPACK_IMPORTED_MODULE_2__.selectProducts);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+<<<<<<< .merge_file_cdBep9
     dispatch((0,_store_ArtSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "List of All Products"));
+=======
+    dispatch((0,_store_ArtSlice__WEBPACK_IMPORTED_MODULE_2__.fetchProducts)());
+  }, [dispatch]);
+  console.log(allProducts); // Logging the products outside the JSX code
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "List of All Products"), allProducts.map(function (product) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      key: product.id,
+      product: product
+    });
+  }));
+>>>>>>> .merge_file_qbd2T7
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllProduct);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllProducts);
 
 /***/ }),
 
@@ -6531,6 +6545,38 @@ var Main = function Main() {
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Main);
+
+/***/ }),
+
+/***/ "./src/components/Product.js":
+/*!***********************************!*\
+  !*** ./src/components/Product.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
+
+var Product = function Product(_ref) {
+  var product = _ref.product;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "Product"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/products/".concat(product.id)
+  }, product.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: function onClick() {
+      return {};
+    }
+  }, "purchase/addToCart"));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Product);
 
 /***/ }),
 
@@ -6632,7 +6678,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   fetchAllProducts: () => (/* binding */ fetchAllProducts)
+/* harmony export */   fetchProducts: () => (/* binding */ fetchProducts),
+/* harmony export */   selectProducts: () => (/* binding */ selectProducts)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
@@ -6642,42 +6689,42 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var fetchAllProducts = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)('allProducts', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-  var _yield$axios$get, data;
+var fetchProducts = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("shop/fetchProducts", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  var response;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
         _context.prev = 0;
         _context.next = 3;
-        return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/products');
+        return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://localhost:8080/api/shop");
       case 3:
-        _yield$axios$get = _context.sent;
-        data = _yield$axios$get.data;
-        return _context.abrupt("return", data);
-      case 8:
-        _context.prev = 8;
+        response = _context.sent;
+        return _context.abrupt("return", response.data);
+      case 7:
+        _context.prev = 7;
         _context.t0 = _context["catch"](0);
-        console.error(_context.t0);
+        console.log(_context.t0);
+        throw new Error("Failed to fetch products");
       case 11:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[0, 8]]);
+  }, _callee, null, [[0, 7]]);
 })));
-var allProducts = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
-  name: 'products',
-  initialState: {
-    artList: []
-  },
+var productsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
+  name: "products",
+  initialState: [],
+  reducers: {},
   extraReducers: function extraReducers(builder) {
-    builder.addCase(fetchAllProducts.fulfilled, function (state, action) {
-      state.artList = action.payload;
-    }), builder.addCase(fetchAllProducts.rejected, function (state, action) {
-      console.log('rejected');
+    builder.addCase(fetchProducts.fulfilled, function (state, action) {
+      return action.payload;
     });
   }
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (allProducts.reducer);
+var selectProducts = function selectProducts(state) {
+  return state.products;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (productsSlice.reducer);
 
 /***/ }),
 
