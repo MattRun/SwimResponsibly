@@ -17,9 +17,10 @@ const AllProduct = ()=> {
 
     return (
         <div>
+            
             <h1>List of All Products</h1>
-            {
-                AllProducts && AllProducts.map((Product) =>{
+            {/* {
+                AllProducts.map((Product) =>{
                     return(
                         <div key={Product.id}>
                             <Link to ={`/products/${Product.id}`}>
@@ -29,10 +30,12 @@ const AllProduct = ()=> {
                             </Link>
                                
                                 {/* <button onClick={()=>purchaseProduct(Product.id)}>purchase/addToCart</button> */}
-                        </div>
+                        {/* </div>
                         )
-                    })
-                }
+                    }) */
+                    
+                    }
+                 
             </div>
         )
     }

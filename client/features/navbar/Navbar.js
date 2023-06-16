@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>Test</h1>
+    
       <nav>
         {isLoggedIn ? (
           <div>
@@ -27,8 +27,12 @@ const Navbar = () => {
         ) : (
           <div>
             {/* The navbar will show these links before you log in */}
+            <Link className="logo-container" to='/'>
+              <span>Logo</span>
+            </Link>
+            <Link className="nav-link"  to='/allproducts'> SHOP</Link>
             <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            
           </div>
         )}
       </nav>
