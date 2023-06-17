@@ -6,7 +6,8 @@ const {db, models: {User, Product} } = require('../server/db')
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
  */
-async function seed() {
+const seed = async() => {
+  try {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
@@ -77,8 +78,12 @@ async function seed() {
       murphy: users[1]
     }
   }
-  
+} catch (err) {
+  // console.log(red(err))
+  console.log(err)
 }
+}
+
 // we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed
 

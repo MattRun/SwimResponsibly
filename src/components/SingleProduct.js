@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { fetchSingleProduct } from "../reducers/singleArtSlice";
+import { fetchSingleProduct } from "../reducers/singleProductSlice";
 
 
 
@@ -39,7 +39,8 @@ const SingleProduct = () => {
         <h1>
           {title} 
         </h1>
-        <span>artisit {artist}</span>
+        <span>artist {artist}</span>
+        <span>year {artist}</span>
         <span>price: {price}</span>
         <span>description: {description}</span>
         <img src={imageUrl} />
