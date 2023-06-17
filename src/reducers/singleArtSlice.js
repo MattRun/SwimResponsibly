@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchSingleProduct = createAsyncThunk(
-    'singeArt', async(artId) => {
+    'singeArt', async(productId) => {
         try {
-            const { data } = await axios.get(`/api/art${artId}`)
+            const { data } = await axios.get(`/api/shop/${productId}`)
             return data
         } catch(err) {
             console.error(err)

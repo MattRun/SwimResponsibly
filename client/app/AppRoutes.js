@@ -9,6 +9,7 @@ import AllProducts from "../../src/components/AllProducts";
 import Navigation from '../features/navbar/Navigation';
 import Navbar from '../features/navbar/Navbar';
 import Home2 from '../features/home/home2'
+import { SingleProduct } from '../../src/components';
 
 
 const AppRoutes = () => {
@@ -45,6 +46,10 @@ const AppRoutes = () => {
               path="/shop"
               element={<AllProducts />}
             />
+            <Route 
+              path='/shop/:productId' 
+              element={<SingleProduct />}
+              />
           </Route>
         </Routes>
       )}

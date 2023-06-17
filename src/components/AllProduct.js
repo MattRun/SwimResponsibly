@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectProducts, fetchProducts } from "../store/ArtSlice";
+// import { selectProducts, fetchProducts } from "../store/ArtSlice";
+import { selectProducts, fetchProducts } from "../reducers/AllProductsSlice";
 import Product from "./Product";
 
 const AllProducts = () => {
