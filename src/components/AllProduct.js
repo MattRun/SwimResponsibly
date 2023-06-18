@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectProducts, fetchProducts } from "../store/ArtSlice";
+// import { selectProducts, fetchProducts } from "../store/ArtSlice";
+import { selectProducts, fetchProducts } from "../reducers/AllProductsSlice";
 import Product from "./Product";
 
 const AllProducts = () => {
@@ -17,9 +18,9 @@ const AllProducts = () => {
   return (
     <div>
       <h1>List of All Products</h1>
-      {allProducts.map((product) => (
+      {/* {allProducts.map((product) => (
         <Product key={product.id} product={product} />
-      ))}
+      ))} */}
     </div>
   );
 };

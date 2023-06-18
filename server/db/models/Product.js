@@ -1,35 +1,42 @@
 const Sequelize = require('sequelize');
-const db = require('../db');
+const db = require('../db.js');
 
-const Art = db.define('Product', {
+module.exports = db.define('Product', {
   title: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   artist: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   year: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   description: {
     type: Sequelize.STRING,
     allowNull: false
   },
   price: {
-    type: Sequelize.FLOAT, // Use Sequelize.INTEGER for whole numbers
+    type: Sequelize.INTEGER, 
     allowNull: false
   },
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',
   },
-  sellerId: {
-    type: Sequelize.VIRTUAL,
-    allowNull: false
-  }
+  
+ 
 });
 
-module.exports = Art;
+

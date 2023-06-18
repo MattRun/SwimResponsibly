@@ -7,7 +7,7 @@ const Product = ({ product }) => {
   return (
     <div className='Product'>
       <h3>
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/shop/${product.id}`}>
         {product.title}
         </Link>
       </h3>
