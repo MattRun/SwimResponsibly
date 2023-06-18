@@ -1,5 +1,8 @@
-// import React from 'react';
+import React, { Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Navbar from '../navbar/Navbar'
+import Navigation from '../navbar/Navigation';
+import AllProducts from '../../../src/components/AllProducts';
 // import { Link, useNavigate } from 'react-router-dom';
 // // import { logout } from '../../app/store';
 // import { logout } from '../auth/authSlice';
@@ -13,56 +16,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Home = (props) => {
   const username = useSelector((state) => state.auth.me.username);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
+      <Fragment>
+        {isLoggedIn && <h3>Welcome {username},</h3>} {/* Render the welcome message only if isLoggedIn is true */}
+        {!isLoggedIn && <h3>Welcome</h3>} {/* Render the welcome message only if isLoggedIn is false */}
+
+      </Fragment>
     </div>
   );
 };
 
 export default Home;
 
-// const Home = (props) => {
-//   const username = useSelector((state) => state.auth.me.username);
-//   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const logoutAndRedirectHome = () => {
-//     dispatch(logout());
-//     navigate('/login');
-//   };
-
-//   return (
-//     <div>
-//          <div>
-//         <HomePage />
-//         {/* <Main /> */}
-//       <nav>
-//         {isLoggedIn ? (
-//           <div>
-//             {/* The navbar will show these links after you log in */}
-//             <Link to="/home">Home</Link>
-//             <button type="button" onClick={logoutAndRedirectHome}>
-//               Logout
-//             </button>
-//           </div>
-//         ) : (
-//           <div>
-//             {/* The navbar will show these links before you log in */}
-//             <Link to="/login">Login</Link>
-//             <Link to="/signup">Sign Up</Link>
-//           </div>
-//         )}
-//       </nav>
-//       <hr />
-//     </div>
-//     <div>
-//       <h3>Welcome, {username}</h3>
-//     </div>
-//     <AllProduct />
-//     </div>
-//   );
-// };
-
-// export default Home;

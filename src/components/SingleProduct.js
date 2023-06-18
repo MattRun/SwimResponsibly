@@ -51,12 +51,7 @@ const SingleProduct = () => {
         <span>price: {singleProduct.price}</span>
         <span>description: {singleProduct.description}</span>
         <img src='singleProduct.imageUrl' />
-        <div>
-          :{" "}
-          {/* <Link to={`/shop/${singleProduct.name}`}>
-            {getProductName(singleProduct.name)}
-          </Link> */}
-        </div>
+        <button type="button">Add to Cart</button>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const Main = () => {
                 <ul className='nav1'>
 
                 <Link to='/'><h3>HomePage</h3></Link>
-                <Link to='/allproducts'><h3>Gallery</h3></Link>
+                <Link to='/shop'><h3>Gallery</h3></Link>
                 {/* aka all products^ */}
                 {/* <Link to='/students'><h3>Artists</h3></Link> */}
                 {/* if we want all artist and single artist to be clickable */}
