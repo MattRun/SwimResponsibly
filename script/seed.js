@@ -1,113 +1,80 @@
-'use strict'
+const { db, models: { User, Product, Cart, Order, OrderItem, CartItem } } = require('../server/db');
 
-const {db, models: {User, Product} } = require('../server/db')
-
-/**
- * seed - this function clears the database, updates tables to
- *      match the models, and populates the database.
- */
 async function seed() {
-  await db.sync({ force: true }) // clears db and matches models to tables
-  console.log('db synced!')
+  await db.sync({ force: true }); // Clears the database and matches models to tables
 
   // Creating Users
   const users = await Promise.all([
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
-  ])
-  console.log("Seeded Users")
+  ]);
+  const [cody, murphy] = users;
+  console.log("Seeded Users");
 
   // Creating Products
   const products = await Promise.all([
     Product.create({
       title: 'Product 1',
-      artist:"unknow",
-      year:199,
+      artist: 'Unknown',
+      year: 199,
       price: 1099,
       description: 'This is the first product.',
-
     }),
-    Product.create({ 
+    Product.create({
       title: 'Product 2',
-    artist:"unknow",
-    year:199,
-    price: 1099,
-    description: 'This is the first product.',
-    }),
-    Product.create({ 
-      title: 'Product 3',
-    artist:"unknow",
-    year:199,
-    price: 1099,
-    description: 'This is the first product.',
-    }),
-    Product.create({
-    title: 'Product 4',
-    artist:"unknow",
-    year:199,
-    price: 1099,
-    description: 'This is the first product.',
-    }),
-    Product.create({
-      title: 'Product 5',
-      artist:"unknow",
-      year:199,
+      artist: 'Unknown',
+      year: 199,
       price: 1099,
-      description: 'This is the first product.',
+      description: 'This is the second product.',
     }),
-    Product.create({
-      title: 'Product 6',
-      artist:"unknow",
-      year:199,
-      price: 1099,
-      description: 'This is the first product.',
-    }),
+    // Add more products here as needed
   ]);
+  console.log('Seeded Products');
 
+  // Creating Carts for Cody and Murphy
+  const codyCart = await Cart.create();
+  const murphyCart = await Cart.create();
+  await cody.setCart(codyCart);
+  await murphy.setCart(murphyCart);
+  console.log('Seeded Carts');
 
+  // Adding Products to Cody's Cart
+  await CartItem.create({ cartId: codyCart.id, productId: products[0].id, quantity: 3 });
+  await CartItem.create({ cartId: codyCart.id, productId: products[1].id, quantity: 2 });
+  console.log("Added Products to Cody's Cart");
 
+  // Adding Products to Murphy's Cart
+  await CartItem.create({ cartId: murphyCart.id, productId: products[0].id, quantity: 1 });
+  console.log("Added Products to Murphy's Cart");
 
-  console.log(`seeded ${users.length} users`)
-  // console.log(`seeded ${products.length} products`)
+  // Creating Orders for Cody and Murphy
+  const codyOrder = await Order.create();
+  const murphyOrder = await Order.create();
+  await cody.addOrder(codyOrder);
+  await murphy.addOrder(murphyOrder);
+  console.log('Seeded Orders');
 
-  console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
-  
+  // Adding Products to Cody's Order
+  await OrderItem.create({ orderId: codyOrder.id, productId: products[0].id, quantity: 2 });
+  console.log("Added Products to Cody's Order");
+
+  console.log('Seeding completed successfully');
 }
-// we export the seed function for testing purposes (see `./seed.spec.js`)
-module.exports = seed
 
-/*
- We've separated the `seed` function from the `runSeed` function.
- This way we can isolate the error handling and exit trapping.
- The `seed` function is concerned only with modifying the database.
-*/
 async function runSeed() {
-  
   try {
     await seed();
-    console.log("Seeding success!");
+    console.log('Seeding success!');
   } catch (err) {
-    console.error("Oh noes! Something went wrong!", err);
-    process.exitCode = 1
+    console.error('Oh no! Something went wrong:', err);
+    process.exitCode = 1;
   } finally {
-    console.log('closing db connection')
-    await db.close()
-    console.log('db connection closed')
+    console.log('Closing the database connection');
+    await db.close();
+    console.log('Database connection closed');
   }
 }
 
-/*
-  Execute the `seed` function, IF we ran this module directly (`node seed`).
-  `Async` functions always return a promise, so we can use `catch` to handle
-  any errors that might occur inside of `seed`.
-*/
 if (module === require.main) {
-  runSeed()
+  runSeed();
 }
-
