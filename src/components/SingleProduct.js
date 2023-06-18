@@ -12,9 +12,12 @@ const SingleProduct = () => {
     const { productId } = useParams();
   const dispatch = useDispatch();
   const singleProduct = useSelector((state) => {
-    return state.singleProduct.singleProduct
+    console.log('state.singleProduct', state.singleProduct.product)
+    return state.singleProduct.product || {}
   });
   console.log('singleProduct', singleProduct)
+    console.log('artist', singleProduct.artist)
+
 //   const { title, artist, description, price } = singleProduct;
   
 
@@ -42,10 +45,12 @@ const SingleProduct = () => {
         <h1>
           {singleProduct.title} 
         </h1>
-        <span>artisit {singleProduct.artist}</span>
+        { singleProduct.artist &&
+          <span>artist: {singleProduct.artist}</span>
+        }
         <span>price: {singleProduct.price}</span>
         <span>description: {singleProduct.description}</span>
-        <img src={singleProduct.imageUrl} />
+        <img src='singleProduct.imageUrl' />
         <div>
           :{" "}
           {/* <Link to={`/shop/${singleProduct.name}`}>

@@ -6621,9 +6621,12 @@ var SingleProduct = function SingleProduct() {
     productId = _useParams.productId;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var singleProduct = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.singleProduct.singleProduct;
+    console.log('state.singleProduct', state.singleProduct.product);
+    return state.singleProduct.product || {};
   });
   console.log('singleProduct', singleProduct);
+  console.log('artist', singleProduct.artist);
+
   //   const { title, artist, description, price } = singleProduct;
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -6647,8 +6650,8 @@ var SingleProduct = function SingleProduct() {
     id: ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "artisit ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "price: ", singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "description: ", singleProduct.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: singleProduct.imageUrl
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), singleProduct.artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "artist: ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "price: ", singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "description: ", singleProduct.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: "singleProduct.imageUrl"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, ":", " ")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleProduct);
@@ -6875,7 +6878,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.navigation {
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  background: #aaa;
+}
+
+.navigation {
   height: 70px;
   width: 100%;
   display: flex;
@@ -6897,7 +6904,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.navigation {
 .navigation .nav-links-container .nav-link {
   padding: 10px 15px;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./client/features/navbar/navigation.styles.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AACJ;AACI;EACE,YAAA;EACA,WAAA;EACA,aAAA;AACN;AAEI;EACE,UAAA;EACA,YAAA;EACA,aAAA;EACA,mBAAA;EACA,yBAAA;AAAN;AAEM;EACE,kBAAA;EACA,eAAA;AAAR","sourcesContent":[".navigation {\n    height: 70px;\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 25px;\n  \n    .logo-container {\n      height: 100%;\n      width: 70px;\n      padding: 25px;\n    }\n  \n    .nav-links-container {\n      width: 50%;\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n  \n      .nav-link {\n        padding: 10px 15px;\n        cursor: pointer;\n      }\n    }\n  }\n  "],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./client/features/navbar/navigation.styles.scss"],"names":[],"mappings":"AAAA;EACE,gBAAA;AACF;;AAEA;EACI,YAAA;EACA,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AACJ;AACI;EACE,YAAA;EACA,WAAA;EACA,aAAA;AACN;AAEI;EACE,UAAA;EACA,YAAA;EACA,aAAA;EACA,mBAAA;EACA,yBAAA;AAAN;AAEM;EACE,kBAAA;EACA,eAAA;AAAR","sourcesContent":["body {\n  background: #aaa;\n}\n\n.navigation {\n    height: 70px;\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 25px;\n  \n    .logo-container {\n      height: 100%;\n      width: 70px;\n      padding: 25px;\n    }\n  \n    .nav-links-container {\n      width: 50%;\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n  \n      .nav-link {\n        padding: 10px 15px;\n        cursor: pointer;\n      }\n    }\n  }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
