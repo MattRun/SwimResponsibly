@@ -21,7 +21,17 @@ const CartPage = () => {
     const handleQuantityChange = (itemId, newQuantity) => {
         dispatch(updateItemQuantity({ itemId, quantity: newQuantity}))
     }
+  
+    const calculateItemTotalPrice = (item) => {
+        return (item.price / 100) * item.quantity
+    }
+    const calculateTotalPrice = () => {
+        return cartItems.reduce((total, item) => total + calculateItemTotalPrice(item), 0);
+        
+    };
+    
 
+   
     return (
         <div>
             <h2>My Cart</h2>
@@ -36,11 +46,12 @@ const CartPage = () => {
                                 <button type="button" onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
                                 <p>Quantity: {item.quantity}</p>
                                 <button type="button" onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
-                                <p>Price: {item.price}</p>
+                                <p>TotalPrice: ${calculateItemTotalPrice(item)}</p>
                                 <button type="button" onClick={() => handleDelete(item.id)}>Remove Item</button>
                             </li>
                         ))}
                     </ul>
+                    <p>Cart Total: ${calculateTotalPrice()}</p>
                 </Fragment>
             )}
         </div>

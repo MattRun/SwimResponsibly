@@ -6512,6 +6512,14 @@ var CartPage = function CartPage() {
       quantity: newQuantity
     }));
   };
+  var calculateItemTotalPrice = function calculateItemTotalPrice(item) {
+    return item.price / 100 * item.quantity;
+  };
+  var calculateTotalPrice = function calculateTotalPrice() {
+    return cartItems.reduce(function (total, item) {
+      return total + calculateItemTotalPrice(item);
+    }, 0);
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "My Cart"), cartItems.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "You're cart is empty") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, cartItems.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
       key: item.id
@@ -6525,13 +6533,13 @@ var CartPage = function CartPage() {
       onClick: function onClick() {
         return handleQuantityChange(item.id, item.quantity + 1);
       }
-    }, "+"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Price: ", item.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    }, "+"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "TotalPrice: $", calculateItemTotalPrice(item)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       type: "button",
       onClick: function onClick() {
         return handleDelete(item.id);
       }
     }, "Remove Item"));
-  }))));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Cart Total: $", calculateTotalPrice())));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CartPage);
 
