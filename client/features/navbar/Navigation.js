@@ -30,7 +30,9 @@ const Navigation = () => {
         {isLoggedIn ? (
           <Fragment>
             <div className="nav-links-container">
-              <button type="button" className="fa-solid fa-cart-shopping">cart</button>
+            <Link className="nav-link" to="/cart">
+              CART
+            </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
@@ -44,7 +46,9 @@ const Navigation = () => {
             <Link className="nav-link" to="/signup">
               SIGN UP
             </Link>
-            <button type="button" className="fa-solid fa-cart-shopping">cart</button>
+            <Link className="nav-link" to="/cart">
+              CART
+            </Link>
           </div>
         )}
       </div>
