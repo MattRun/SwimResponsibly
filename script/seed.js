@@ -27,6 +27,20 @@ async function seed() {
       price: 1099,
       description: 'This is the second product.',
     }),
+    Product.create({
+      title: 'Product 3',
+      artist: 'Unknown',
+      year: 199,
+      price: 1099,
+      description: 'This is the first product.',
+    }),
+    Product.create({
+      title: 'Product 4',
+      artist: 'Unknown',
+      year: 199,
+      price: 1099,
+      description: 'This is the first product.',
+    }),
     // Add more products here as needed
   ]);
   console.log('Seeded Products');

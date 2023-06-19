@@ -7,12 +7,13 @@ import logger from 'redux-logger';
 import authReducer from '../../client/features/auth/authSlice';
 import AllProductsSlice from '../reducers/AllProductsSlice';
 import singleProductSlice from '../reducers/singleProductSlice';
-
+import AdminAllProductsSlice from '../reducers/admin/AdminAllProductsSlice';
 const store = configureStore({
   reducer: {
     auth: authReducer,
     products: AllProductsSlice,
     singleProduct: singleProductSlice,
+    adminProducts:AdminAllProductsSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
