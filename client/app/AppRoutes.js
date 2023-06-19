@@ -9,7 +9,7 @@ import AllProducts from "../../src/components/AllProducts";
 import Navigation from '../features/navbar/Navigation';
 import Navbar from '../features/navbar/Navbar';
 import Home2 from '../features/home/home2'
-import { SingleProduct } from '../../src/components';
+import SingleProduct from '../../src/components/SingleProduct';
 
 
 const AppRoutes = () => {
