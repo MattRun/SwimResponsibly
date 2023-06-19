@@ -17,9 +17,9 @@ const isAdmin = (req, res, next) => {
     } else {
         next()
     }
-}
+} 
 
 module.exports = {
     requrieToken,
-    isAdmin
+    isAdmin,
 }
