@@ -1,9 +1,15 @@
 import React from 'react';
-
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addItemToCart } from '../reducers/CartSlice';
 
 const Product = ({ product }) => {
- 
+ const dispatch = useDispatch()
+
+ const handleAddToCart = () => {
+  dispatch(addItemToCart(product))
+ }
+
   return (
     <div className='Product'>
       <h3>
@@ -11,9 +17,9 @@ const Product = ({ product }) => {
         {product.title}
         </Link>
       </h3>
-      <button onClick={()=>({})}>purchase/addToCart</button>
+      <button onClick={handleAddToCart}>purchase/addToCart</button>
     
-    </div>
+    </div> 
   );
 };
 

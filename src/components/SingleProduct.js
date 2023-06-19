@@ -4,22 +4,27 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
+import { addItemToCart } from "../reducers/CartSlice";
 
 
 
 
 const SingleProduct = () => {
-    const { productId } = useParams();
+  const { productId } = useParams();
+  
   const dispatch = useDispatch();
+  
   const singleProduct = useSelector((state) => {
     console.log('state.singleProduct', state.singleProduct.product)
     return state.singleProduct.product || {}
   });
-  console.log('singleProduct', singleProduct)
-    console.log('artist', singleProduct.artist)
 
-//   const { title, artist, description, price } = singleProduct;
-  
+  console.log('singleProduct', singleProduct)
+  console.log('artist', singleProduct.artist)
+
+  const handleAddToCart = () => {
+   dispatch(addItemToCart(singleProduct))
+  }
 
   useEffect(() => {
     dispatch(fetchSingleProduct(productId));
@@ -51,7 +56,7 @@ const SingleProduct = () => {
         <span>price: {singleProduct.price}</span>
         <span>description: {singleProduct.description}</span>
         <img src='singleProduct.imageUrl' />
-        <button type="button">Add to Cart</button>
+        <button type="button" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

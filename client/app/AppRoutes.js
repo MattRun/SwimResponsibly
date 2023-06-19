@@ -10,6 +10,7 @@ import Navigation from '../features/navbar/Navigation';
 import Navbar from '../features/navbar/Navbar';
 import Home2 from '../features/home/home2'
 import SingleProduct from '../../src/components/SingleProduct';
+import CartPage from '../../src/components/CartPage';
 
 
 const AppRoutes = () => {
@@ -35,6 +36,10 @@ const AppRoutes = () => {
               path='/shop/:productId' 
               element={<SingleProduct />}
               />
+            <Route 
+              path='/cart'
+              element={<CartPage />}
+            />
         </Routes>
       ) : (
         <Routes>
@@ -62,6 +67,10 @@ const AppRoutes = () => {
               path='/shop/:productId' 
               element={<SingleProduct />}
               />
+            <Route 
+              path='/cart'
+              element={<CartPage />}
+            />
         </Routes>
       )}
     </div>
