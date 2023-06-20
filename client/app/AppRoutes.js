@@ -38,7 +38,11 @@ const AppRoutes = () => {
             element={<SingleProduct />}
           />
 
-          {isAdmin && <Route path="/admin" element={<Admin />} />}  
+          {isAdmin && 
+          <Route path="/admin" element={<Admin />}
+        
+          
+          />}  
         </Routes>
       ) : (
         <Routes>

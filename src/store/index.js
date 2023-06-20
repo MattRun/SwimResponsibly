@@ -7,7 +7,8 @@ import logger from 'redux-logger';
 import authReducer from '../../client/features/auth/authSlice';
 import AllProductsSlice from '../reducers/AllProductsSlice';
 import singleProductSlice from '../reducers/singleProductSlice';
-import AdminAllProductsSlice from '../reducers/admin/AdminAllProductsSlice';
+import AdminAllProductsSlice from '../reducers/admin/AdminAllProductsSlice.js';
+
 const store = configureStore({
   reducer: {
     auth: authReducer,
