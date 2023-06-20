@@ -18,8 +18,21 @@ const AllProducts = () => {
     <div>
       <h1>List of All Products</h1>
       {allProducts.map((product) => (
-        <Product key={product.id} product={product} />
+        <Product key={product.id} product={product} videoUrl={product.videoUrl}/>
+        // <Route path="/product/:productId/:videoUrl" component={ProductDetail} />
+        // videoUrl={product.videoUrl}
       ))}
+      {/* <div>
+        <iframe
+          width="240"
+          height="360"
+          src={Product.videoUrl}
+          title="YouTube Video"
+          // frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div> */}
     </div>
   );
 };
