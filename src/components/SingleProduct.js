@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
-
+import "./scss/SingleProducts.scss"
 
 
 
@@ -50,32 +50,7 @@ const SingleProduct = () => {
         }
         <span>price: {singleProduct.price}</span>
         <span>description: {singleProduct.description}</span>
-        {/* {singleProduct.videoUrl && (
-        <div>
-          <h2>Video</h2>
-          <iframe
-            width="560"
-            height="315"
-            src={singleProduct.videoUrl}
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen
-          ></iframe>
-        </div>
-      )} */}
-        {/* <img src='singleProduct.imageUrl' /> */}
 
-        {/* <div>
-        <iframe
-          width="560"
-          height="315"
-          src={singleProduct.videoUrl}
-          title="YouTube Video"
-          // frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div> */}
         <button type="button">Add to Cart</button>
       </div>
     </div>
