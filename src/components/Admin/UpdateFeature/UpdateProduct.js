@@ -1,79 +1,135 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-const UpdateProductForm = ({ campus, onUpdate }) => {
+
+import {
+  fetchSingleProduct,
+  selectSingleProduct,
+  updateProduct,
+} from "../../../reducers/admin/AdminUpdateProductSlice";
+
+const UpdateProductForm = () => {
+  const { productId } = useParams();
   const dispatch = useDispatch();
-  const { id } = useParams();
-  const singleCampus = useSelector(selectSingleCampus);
+  const product = useSelector(selectSingleProduct);
+  const navigate = useNavigate();
+  
 
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
+  useEffect(() => {
+    dispatch(fetchSingleProduct(productId));
+  }, [dispatch, productId]);
+
+  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
+  const [year, setYear] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    setTitle(product.title || "");
+    setArtist(product.artist || "");
+    setYear(product.year || "");
+    setDescription(product.description || "");
+    setPrice(product.price || "");
+    setImageUrl(product.imageUrl || "");
+  }, [product]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedCampus = {
-      id: campus.id,
-      name,
-      address,
+    const updatedProduct = {
+      id: productId,
+      title,
+      artist,
+      year,
       description,
+      price,
+      imageUrl,
     };
-
     try {
-      await dispatch(updateCampus(updatedCampus));
-      onUpdate(updatedCampus); // Update the campus in the current view
+      await dispatch(updateProduct(updatedProduct));
+      // handle the updated product
+      console.log("Updated Product:", updatedProduct);
     } catch (error) {
       console.log("Update failed:", error);
     }
-
-    setName("");
-    setAddress("");
-    setDescription("");
   };
 
+  const handleCancel = () => {
+    navigate("/admin");
+  };
+  
   return (
     <>
-      {singleCampus && (
-        <form onSubmit={handleSubmit}>
-          <h2>Update Campus</h2>
-          <label htmlFor="name">Name:</label>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
-            id="name"
-            placeholder="Enter Name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Title:"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-
-          <label htmlFor="address">Address:</label>
+        </div>
+        <div>
+          <label htmlFor="artist">Artist:</label>
           <input
             type="text"
-            id="address"
-            placeholder="Enter Address"
-            name="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Enter Artist:"
+            id="artist"
+            value={artist}
+            onChange={(e) => setArtist(e.target.value)}
           />
-
+        </div>
+        <div>
+          <label htmlFor="year">Year:</label>
+          <input
+            placeholder="Enter Year:"
+            type="number"
+            id="year"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+          />
+        </div>
+        <div>
           <label htmlFor="description">Description:</label>
           <input
+            placeholder="Enter Description:"
             type="text"
-            placeholder="Enter Description"
             id="description"
-            name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+        </div>
+        <div>
+          <label htmlFor="price">Price:</label>
+          <input
+            placeholder="Enter Price:"
+            type="number"
+            id="price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="image">Image:</label>
+          <input
+            placeholder="Enter Image:"
+            type="link"
+            id="image"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}/>
 
-          <div className="button-box">
-            <button type="submit">Update</button>
           </div>
-        </form>
-      )}
-    </>
-  );
-};
-
-export default UpdateProductForm;
+          <button type="submit" onClik>Update Product</button>
+          <button type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+          </form>
+        </>
+        );
+        };
+        
+        export default UpdateProductForm;

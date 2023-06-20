@@ -18,7 +18,7 @@ const AllProducts = () => {
 
   return (
     <div>
-      <AddProductForm />
+  
       <div>
         {products.map((product) => (
           <Product key={uuidv4()} product={product} />

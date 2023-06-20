@@ -20,8 +20,10 @@ const Product = ({ product }) => {
   return (
     <div className="Product">
       <h3>{product.title}</h3>
-      <button onClick={() => ({})}>Update</button>
-      <button type="click" onClick={() => handleDeleteProduct(product.id)}>
+      <button>
+        <Link to={`/admin/${product.id}`}>Update</Link>
+      </button>
+      <button type="button" onClick={() => handleDeleteProduct(product.id)}>
         Delete
       </button>
     </div>
