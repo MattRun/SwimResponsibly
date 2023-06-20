@@ -29,7 +29,7 @@ const CartPage = () => {
         <div>
             <h2>My Cart</h2>
             {cartItems.length === 0 ? (
-                <p>You're cart is empty</p>
+                <p>Your cart is empty</p>
             ) : (
                 <Fragment>
                     <ul>

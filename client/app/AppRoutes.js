@@ -70,7 +70,9 @@ const AppRoutes = () => {
             <Route 
               path='/cart'
               element={<CartPage />}
-            />
+             />
+             <Route path="/payment" element={<Payment />} />
+          <Route path="/paymentmade" element={<PaymentSUccess />} />
         </Routes>
       )}
     </div>
