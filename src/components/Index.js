@@ -3,5 +3,6 @@
 
 export {default as HomePage} from './HomePage.js'
 export {default as Main} from './Main.js'
-export {default as AllProduct} from './AllProduct.js'
+export {default as AllProducts} from './AllProducts.js'
 export {default as SingleProduct} from './SingleProduct.js'
+export {default as Product} from "./Product.js"

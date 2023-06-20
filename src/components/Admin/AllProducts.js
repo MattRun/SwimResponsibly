@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { selectProducts, fetchProducts } from "../reducers/AllProductsSlice";
+import {
+  fetchProducts,
+  selectProducts
+} from "../../reducers/admin/AdminAllProductsSlice";
 import Product from "./Product";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
-  const allProducts = useSelector(selectProducts);
+  const products = useSelector(selectProducts);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -14,8 +16,7 @@ const AllProducts = () => {
 
   return (
     <div>
-      <h1>List of All Products</h1>
-      {allProducts.map((product) => (
+      {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
     </div>
