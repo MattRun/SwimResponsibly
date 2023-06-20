@@ -141,44 +141,44 @@ async function seed() {
       videoUrl:'https://giphy.com/embed/XOuUMjYby3KC2WQnad'
     }),
     Product.create({
-      title: '',
-      artist: '',
+      title: 'War of One',
+      artist: 'TwistedFantasy',
       year: 2022,
       price: 2099,
-      description: '',
-      videoUrl:'https://giphy.com/embed/teiQWOHAeEUPqJpjDl'
+      description: 'I find 3d models from Quixel megascans to fill up the scene and much more. I used Davinici resolve to color grading and composite everything together. Its a World War 1 inspiration. https://www.instagram.com/rasmusgphoto/ ',
+      videoUrl:'https://giphy.com/embed/zEhWOgHmqKMlVVBXAB'
     }),
     Product.create({
-      title: '',
-      artist: '',
+      title: 'Rugras',
+      artist: 'Escape',
       year: 2022,
       price: 2099,
-      description: '',
-      videoUrl:'https://giphy.com/embed/teiQWOHAeEUPqJpjDl'
+      description: 'My submission for the Pwnisher Infinite Journeys 3D Challenge.',
+      videoUrl:'https://giphy.com/embed/pGDdupOi1q6Jafi21r'
     }),
     Product.create({
-      title: '',
-      artist: '',
+      title: 'Coming Home',
+      artist: 'Makenbo',
       year: 2022,
       price: 2099,
-      description: '',
-      videoUrl:'https://giphy.com/embed/teiQWOHAeEUPqJpjDl'
+      description: 'My submission for Pwnishers one month long render challange called "Infinite Journeys". https://www.instagram.com/thegreatmurloc/',
+      videoUrl:'https://giphy.com/embed/EREVMDlc5XD8pRGP1U'
     }),
     Product.create({
-      title: '',
-      artist: '',
+      title: 'Under the surface',
+      artist: 'Blenderlicious',
       year: 2022,
       price: 2099,
-      description: '',
-      videoUrl:'https://giphy.com/embed/teiQWOHAeEUPqJpjDl'
+      description: 'My Entry for the "infinite journeys" - CG Challenge by Pwnisher Made in Blender 3.0 . https://www.artstation.com/blenderlicious',
+      videoUrl:'https://giphy.com/embed/HpN3L5XTTT8VkMX1UY'
     }),
     Product.create({
-      title: '',
-      artist: '',
+      title: 'Space Nomblers',
+      artist: 'KrisET - Somethings Awry',
       year: 2022,
       price: 2099,
-      description: '',
-      videoUrl:'https://giphy.com/embed/teiQWOHAeEUPqJpjDl'
+      description: 'Just another day feeding the Space Nomblers 1st place winner in Pwnishers Infinite Journeys Render Challenge! Animated using Noitoms Perception Neuron 3',
+      videoUrl:'https://giphy.com/embed/JxteIDl9bFaAMKjbr6'
     }),
     // Add more products here as needed
   ]);
