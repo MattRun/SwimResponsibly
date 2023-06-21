@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteProduct } from "../../reducers/admin/AdminAllProductsSlice";
+import './scss/Product.styles.scss'
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,25 @@ const Product = ({ product }) => {
 
   return (
     <div className="Product">
-      <h3>{product.title}</h3>
+      <div className="productTitle">
+        <h3>
+          <Link to={`/shop/${product.id}`}>{product.title}</Link>
+        </h3>
+      </div>
+      <div className="productVideo">
+        <div className="allProductDisplay">
+          <iframe
+            width="100%"
+            height="auto"
+            src={product.videoUrl}
+            title="Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            muted // Add the 'muted' attribute to enable autoplay
+          ></iframe>
+        </div>
+      </div>
       <button>
         <Link to={`/admin/${product.id}`}>Update</Link>
       </button>
