@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
-import { selectSingleProduct } from "../reducers/singleProductSlice";
 import "./scss/SingleProducts.scss";
 import { addItemToCart } from "../reducers/CartSlice";
 
@@ -22,6 +21,8 @@ const SingleProduct = () => {
     const updatedCartItems = [...cartItems, singleProduct];
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
+
+  const formattedPrice = (singleProduct.price / 100).toFixed(2);
   
 
   return (
@@ -29,7 +30,7 @@ const SingleProduct = () => {
       <div className="singleProductContainer">
         <h1>{singleProduct.title}</h1>
         {singleProduct.artist && <span>Artist: {singleProduct.artist}</span>}
-        <span>Price: {singleProduct.price}</span>
+        <span>Price: ${formattedPrice}</span>
         <span>Description: {singleProduct.description}</span>
         {singleProduct.videoUrl && (
           <div className="singleProductVideo">

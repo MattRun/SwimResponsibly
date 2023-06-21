@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItemsFromCart, updateItemQuantity } from "../reducers/CartSlice";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart.items)

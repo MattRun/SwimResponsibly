@@ -22,7 +22,7 @@ const Navigation = () => {
       <div className="navigation">
         <h1 className='Header'>Brooklyn Street Art</h1>
         <Link className="logo-container" to="/home">
-          <span>Logo</span>
+          <span>Home</span>
         </Link>
         <Link className="logo-container" to="/shop">
           <span>Gallery</span>

@@ -12,7 +12,6 @@ import UpdateProductForm from "../../src/components/Admin/UpdateFeature/UpdatePr
 import Navigation from '../features/navbar/Navigation';
 import Payment from '../../src/components/Checkout/Checkout';
 import PaymentSuccess from '../../src/components/Checkout/PaymentSuccess';
-import PaymentCancel from '../../src/components/Checkout/PaymentCancel';
 
 
 const AppRoutes = () => {

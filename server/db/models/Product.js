@@ -52,6 +52,7 @@ module.exports = db.define('Product', {
   videoUrl: {
     type: Sequelize.STRING,
     allowNull: false,
+    defaultValue: "https://giphy.com/embed/JxteIDl9bFaAMKjbr6"
   },
   
  
