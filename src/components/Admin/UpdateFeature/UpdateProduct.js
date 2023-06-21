@@ -49,7 +49,7 @@ const UpdateProductForm = () => {
     };
     try {
       await dispatch(updateProduct(updatedProduct));
-      // handle the updated product
+      navigate("/admin");
       console.log("Updated Product:", updatedProduct);
     } catch (error) {
       console.log("Update failed:", error);
@@ -126,7 +126,7 @@ const UpdateProductForm = () => {
             onChange={(e) => setImageUrl(e.target.value)}/>
 
           </div>
-          <button type="submit" >Update Product</button>
+          <button type="submit">Update Product</button>
           <button type="button" onClick={handleCancel}>
           Cancel
         </button>

@@ -21,7 +21,7 @@ router.get('/:id', async (req, res, next) => {
     const { id } = req.params
 
     const product = await Product.findByPk(id)
-    console.log(product)
+  
 
     if (!product) {
       return res.status(404).send('Product not found')

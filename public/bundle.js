@@ -6845,19 +6845,19 @@ var UpdateProductForm = function UpdateProductForm() {
             _context.next = 5;
             return dispatch((0,_reducers_admin_AdminUpdateProductSlice__WEBPACK_IMPORTED_MODULE_2__.updateProduct)(updatedProduct));
           case 5:
-            // handle the updated product
+            navigate("/admin");
             console.log("Updated Product:", updatedProduct);
-            _context.next = 11;
+            _context.next = 12;
             break;
-          case 8:
-            _context.prev = 8;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context["catch"](2);
             console.log("Update failed:", _context.t0);
-          case 11:
+          case 12:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[2, 8]]);
+      }, _callee, null, [[2, 9]]);
     }));
     return function handleSubmit(_x2) {
       return _ref.apply(this, arguments);
