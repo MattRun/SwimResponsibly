@@ -25,24 +25,24 @@
       border-radius: 10px; /* Adjust the border-radius for the title */
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */
       margin-bottom: 10px; /* Adjust margin-bottom for spacing */
-      background-color: #6D7275; /* Change the background color for the title */
+      background-color: #C20114; /* Change the background color for the title */
   
       h3 {
         margin: 0;
-        padding: 5px 10px;
+        padding: 2px 16px;
         font-family: "Arial", sans-serif;
         font-size: 18px;
         background-color: transparent;
-        color: #C7D6D5; /* Change the color of the words in the title */
+        color: #0C120C; /* Change the color of the words in the title */
         // border: none; /* Remove border properties for the title */
   
         a {
-          color: #ECEBF3; /* Change the color of the hyperlink title */
+          color: #0C120C; /* Change the color of the hyperlink title */
           text-decoration: none; /* Remove underline */
   
           &:hover,
           &:active {
-            color: #C20114; /* Change the hover color of the hyperlink title */
+            color: #ECEBF3; /* Change the hover color of the hyperlink title */
             text-decoration: underline; /* Add underline on hover */
           }
         }
@@ -62,8 +62,8 @@
     }
   
     button {
-      background-color: #4caf50;
-      color: white;
+      background-color: #C20114;
+      color: #0C120C;
       border: none;
       padding: 8px 16px;
       text-align: center;

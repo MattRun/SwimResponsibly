@@ -6603,16 +6603,22 @@ var AllProducts = function AllProducts() {
   }, [dispatch]);
   console.log(allProducts); // Logging the products outside the JSX code
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("body", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "AllProducts"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "We have assembled a collective of over a hundred creators to empower emerging artists in sharing their digital art with the world."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "productGrid"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "AllProducts1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    className: "header"
+  }, "Gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", {
+    className: "separator"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "quote"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "We have assembled a collective of over a hundred creators to empower emerging artists in sharing their digital art with the world.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "productGrid1"
   }, allProducts.map(function (product) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: product.id,
       product: product
     });
-  }))));
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllProducts);
 
@@ -6703,11 +6709,11 @@ var SingleProduct = function SingleProduct() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "SingleProduct"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "productContainer"
+    className: "singleProductContainer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), singleProduct.artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Artist: ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Price: ", singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Description: ", singleProduct.description), singleProduct.videoUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "productVideo"
+    className: "singleProductVideo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "allProductDisplay"
+    className: "singleProductDisplay"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
     width: "100%",
     height: "auto",
@@ -7013,33 +7019,63 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-  background: #aaa;
-}
-
-.navigation {
+___CSS_LOADER_EXPORT___.push([module.id, `.navigation {
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.navigation .logo-container {
-  height: 100%;
-  width: 70px;
-  padding: 25px;
-}
-.navigation .nav-links-container {
-  width: 50%;
+
+.logo-container {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
-.navigation .nav-links-container .nav-link {
+
+.logo-container span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
   padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #555;
+}
+
+.logout-button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./client/features/navbar/navigation.styles.scss"],"names":[],"mappings":"AAAA;EACE,gBAAA;AACF;;AAEA;EACI,YAAA;EACA,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AACJ;AACI;EACE,YAAA;EACA,WAAA;EACA,aAAA;AACN;AAEI;EACE,UAAA;EACA,YAAA;EACA,aAAA;EACA,mBAAA;EACA,yBAAA;AAAN;AAEM;EACE,kBAAA;EACA,eAAA;AAAR","sourcesContent":["body {\n  background: #aaa;\n}\n\n.navigation {\n    height: 70px;\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 25px;\n  \n    .logo-container {\n      height: 100%;\n      width: 70px;\n      padding: 25px;\n    }\n  \n    .nav-links-container {\n      width: 50%;\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n  \n      .nav-link {\n        padding: 10px 15px;\n        cursor: pointer;\n      }\n    }\n  }\n  "],"sourceRoot":""}]);
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #555;
+}`, "",{"version":3,"sources":["webpack://./client/features/navbar/navigation.styles.scss"],"names":[],"mappings":"AAgCA;EACE,YAAA;EACA,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;EACA,eAAA;EACA,sBAAA;EACA,wCAAA;AA/BF;;AAkCA;EACE,YAAA;EACA,aAAA;EACA,mBAAA;AA/BF;;AAkCA;EACE,eAAA;EACA,iBAAA;EACA,WAAA;AA/BF;;AAkCA;EACE,aAAA;EACA,mBAAA;AA/BF;;AAkCA;EACE,kBAAA;EACA,iBAAA;EACA,eAAA;EACA,WAAA;EACA,qBAAA;EACA,2BAAA;AA/BF;;AAkCA;EACE,WAAA;AA/BF;;AAkCA;EACE,iBAAA;EACA,iBAAA;EACA,eAAA;EACA,WAAA;EACA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,eAAA;EACA,sCAAA;AA/BF;;AAkCA;EACE,sBAAA;AA/BF","sourcesContent":["// body {\n//   background: #aaa;\n// }\n\n// .navigation {\n//     height: 70px;\n//     width: 100%;\n//     display: flex;\n//     justify-content: space-between;\n//     margin-bottom: 25px;\n  \n//     .logo-container {\n//       height: 100%;\n//       width: 70px;\n//       padding: 25px;\n//     }\n  \n//     .nav-links-container {\n//       width: 50%;\n//       height: 100%;\n//       display: flex;\n//       align-items: center;\n//       justify-content: flex-end;\n  \n//       .nav-link {\n//         padding: 10px 15px;\n//         cursor: pointer;\n//       }\n//     }\n//   }\n\n\n.navigation {\n  height: 70px;\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 25px;\n  align-items: center;\n  padding: 0 20px;\n  background-color: #fff;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n.logo-container {\n  height: 100%;\n  display: flex;\n  align-items: center;\n}\n\n.logo-container span {\n  font-size: 20px;\n  font-weight: bold;\n  color: #333;\n}\n\n.nav-links-container {\n  display: flex;\n  align-items: center;\n}\n\n.nav-link {\n  padding: 10px 15px;\n  margin-left: 10px;\n  font-size: 16px;\n  color: #333;\n  text-decoration: none;\n  transition: color 0.3s ease;\n}\n\n.nav-link:hover {\n  color: #555;\n}\n\n.logout-button {\n  margin-left: 10px;\n  padding: 8px 15px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #333;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.logout-button:hover {\n  background-color: #555;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7066,7 +7102,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts1 {
+  padding: 20px;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.header {
+  font-size: 36px; /* Increase font size */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #C20114;
+}
+
+.separator {
+  border-top: 2px solid #ccc; /* Add a horizontal line separator */
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+.quote {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quote p {
+  font-size: 20px; /* Increase font size */
+  font-style: italic;
+  color: #C20114;
+}
+
+.productGrid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/AllProducts.scss"],"names":[],"mappings":"AAkBA;EACI,aAAA;EACA,sBAAA,EAAA,qBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,iBAAA;EACA,kBAAA;EACA,mBAAA;EACA,cAAA;AAjBJ;;AAoBE;EACE,0BAAA,EAAA,oCAAA;EACA,cAAA,EAAA,gCAAA;AAjBJ;;AAoBE;EACE,kBAAA;EACA,mBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,kBAAA;EACA,cAAA;AAjBJ;;AAoBE;EACE,aAAA;EACA,2DAAA;EACA,cAAA;AAjBJ","sourcesContent":["// .rows:after{\n//     content: \"\";\n//     display: table;\n//     clear: both;\n// }\n\n// .AllProducts { /* Updated selector */\n//     display: flex;\n//     flex-wrap: wrap;\n//     flex-direction: column;\n//     align-items: center;\n//   }\n  \n//   .AllProducts > * { /* Updated selector */\n//     flex: 0 0 calc(33.33% - 10px);\n//     margin: 5px;\n//   }\n\n.AllProducts1 {\n    padding: 20px;\n    border: 1px solid #ccc; /* Add border style */\n  }\n  \n  .header {\n    font-size: 36px; /* Increase font size */\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n    color: #C20114;\n  }\n  \n  .separator {\n    border-top: 2px solid #ccc; /* Add a horizontal line separator */\n    margin: 20px 0; /* Adjust the margin as needed */\n  }\n  \n  .quote {\n    text-align: center;\n    margin-bottom: 20px;\n  }\n  \n  .quote p {\n    font-size: 20px; /* Increase font size */\n    font-style: italic;\n    color: #C20114;\n  }\n  \n  .productGrid1 {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    grid-gap: 20px;\n  }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7120,22 +7189,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   border-radius: 10px; /* Adjust the border-radius for the title */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */
   margin-bottom: 10px; /* Adjust margin-bottom for spacing */
-  background-color: #6D7275; /* Change the background color for the title */
+  background-color: #C20114; /* Change the background color for the title */
 }
 .Product .productTitle h3 {
   margin: 0;
-  padding: 5px 10px;
+  padding: 2px 16px;
   font-family: "Arial", sans-serif;
   font-size: 18px;
   background-color: transparent;
-  color: #C7D6D5; /* Change the color of the words in the title */
+  color: #0C120C; /* Change the color of the words in the title */
 }
 .Product .productTitle h3 a {
-  color: #ECEBF3; /* Change the color of the hyperlink title */
+  color: #0C120C; /* Change the color of the hyperlink title */
   text-decoration: none; /* Remove underline */
 }
 .Product .productTitle h3 a:hover, .Product .productTitle h3 a:active {
-  color: #C20114; /* Change the hover color of the hyperlink title */
+  color: #ECEBF3; /* Change the hover color of the hyperlink title */
   text-decoration: underline; /* Add underline on hover */
 }
 .Product .productVideo {
@@ -7149,8 +7218,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   height: 100%;
 }
 .Product button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #C20114;
+  color: #0C120C;
   border: none;
   padding: 8px 16px;
   text-align: center;
@@ -7162,7 +7231,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
 
 body {
   margin: 0 20px; /* Add left and right margin */
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;;AAEE;EACE,aAAA;EACA,2DAAA,EAAA,gDAAA;EACA,cAAA,EAAA,oCAAA;EACA,gBAAA;EACA,qBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA,EAAA,mDAAA;EACA,yBAAA,EAAA,+CAAA;EACA,kBAAA;EACA,sCAAA,EAAA,yCAAA;EACA,yBAAA,EAAA,uBAAA;AACJ;AACI;EACE,mBAAA,EAAA,2CAAA;EACA,sCAAA,EAAA,6BAAA;EACA,mBAAA,EAAA,qCAAA;EACA,yBAAA,EAAA,8CAAA;AACN;AACM;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA,EAAA,+CAAA;AACR;AAEQ;EACE,cAAA,EAAA,4CAAA;EACA,qBAAA,EAAA,qBAAA;AAAV;AAEU;EAEE,cAAA,EAAA,kDAAA;EACA,0BAAA,EAAA,2BAAA;AADZ;AAOI;EACE,WAAA,EAAA,wCAAA;EACA,YAAA,EAAA,yCAAA;EACA,kBAAA,EAAA,gDAAA;EACA,gBAAA,EAAA,sCAAA;AALN;AAQI;EACE,WAAA;EACA,YAAA;AANN;AASI;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPN;;AAaE;EACE,cAAA,EAAA,8BAAA;AAVJ","sourcesContent":[".AllProducts {\n    text-align: center;\n  }\n  \n  .productGrid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */\n    grid-gap: 40px; /* Adjust the gap between products */\n    margin-top: 20px;\n    justify-items: center;\n  }\n  \n  .Product {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 10px;\n    position: relative; /* Add position property for stacking the borders */\n    background-color: #0C120C; /* Background color for the additional border */\n    border-radius: 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */\n    border: 2px solid #C20114; /* Add another border */\n  \n    .productTitle {\n      border-radius: 10px; /* Adjust the border-radius for the title */\n      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */\n      margin-bottom: 10px; /* Adjust margin-bottom for spacing */\n      background-color: #6D7275; /* Change the background color for the title */\n  \n      h3 {\n        margin: 0;\n        padding: 5px 10px;\n        font-family: \"Arial\", sans-serif;\n        font-size: 18px;\n        background-color: transparent;\n        color: #C7D6D5; /* Change the color of the words in the title */\n        // border: none; /* Remove border properties for the title */\n  \n        a {\n          color: #ECEBF3; /* Change the color of the hyperlink title */\n          text-decoration: none; /* Remove underline */\n  \n          &:hover,\n          &:active {\n            color: #C20114; /* Change the hover color of the hyperlink title */\n            text-decoration: underline; /* Add underline on hover */\n          }\n        }\n      }\n    }\n  \n    .productVideo {\n      width: 100%; /* Adjust width as per your preference */\n      height: auto; /* Adjust height as per your preference */\n      margin-bottom: 2px; /* Adjust margin-bottom as per your preference */\n      max-width: 400px; /* Set a maximum width for the video */\n    }\n  \n    .allProductDisplay {\n      width: 100%;\n      height: 100%;\n    }\n  \n    button {\n      background-color: #4caf50;\n      color: white;\n      border: none;\n      padding: 8px 16px;\n      text-align: center;\n      text-decoration: none;\n      display: inline-block;\n      font-size: 12px;\n      cursor: pointer;\n    }\n  }\n  \n\n\n  body {\n    margin: 0 20px; /* Add left and right margin */\n  }\n  \n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;;AAEE;EACE,aAAA;EACA,2DAAA,EAAA,gDAAA;EACA,cAAA,EAAA,oCAAA;EACA,gBAAA;EACA,qBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA,EAAA,mDAAA;EACA,yBAAA,EAAA,+CAAA;EACA,kBAAA;EACA,sCAAA,EAAA,yCAAA;EACA,yBAAA,EAAA,uBAAA;AACJ;AACI;EACE,mBAAA,EAAA,2CAAA;EACA,sCAAA,EAAA,6BAAA;EACA,mBAAA,EAAA,qCAAA;EACA,yBAAA,EAAA,8CAAA;AACN;AACM;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA,EAAA,+CAAA;AACR;AAEQ;EACE,cAAA,EAAA,4CAAA;EACA,qBAAA,EAAA,qBAAA;AAAV;AAEU;EAEE,cAAA,EAAA,kDAAA;EACA,0BAAA,EAAA,2BAAA;AADZ;AAOI;EACE,WAAA,EAAA,wCAAA;EACA,YAAA,EAAA,yCAAA;EACA,kBAAA,EAAA,gDAAA;EACA,gBAAA,EAAA,sCAAA;AALN;AAQI;EACE,WAAA;EACA,YAAA;AANN;AASI;EACE,yBAAA;EACA,cAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPN;;AAaE;EACE,cAAA,EAAA,8BAAA;AAVJ","sourcesContent":[".AllProducts {\n    text-align: center;\n  }\n  \n  .productGrid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */\n    grid-gap: 40px; /* Adjust the gap between products */\n    margin-top: 20px;\n    justify-items: center;\n  }\n  \n  .Product {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 10px;\n    position: relative; /* Add position property for stacking the borders */\n    background-color: #0C120C; /* Background color for the additional border */\n    border-radius: 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */\n    border: 2px solid #C20114; /* Add another border */\n  \n    .productTitle {\n      border-radius: 10px; /* Adjust the border-radius for the title */\n      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */\n      margin-bottom: 10px; /* Adjust margin-bottom for spacing */\n      background-color: #C20114; /* Change the background color for the title */\n  \n      h3 {\n        margin: 0;\n        padding: 2px 16px;\n        font-family: \"Arial\", sans-serif;\n        font-size: 18px;\n        background-color: transparent;\n        color: #0C120C; /* Change the color of the words in the title */\n        // border: none; /* Remove border properties for the title */\n  \n        a {\n          color: #0C120C; /* Change the color of the hyperlink title */\n          text-decoration: none; /* Remove underline */\n  \n          &:hover,\n          &:active {\n            color: #ECEBF3; /* Change the hover color of the hyperlink title */\n            text-decoration: underline; /* Add underline on hover */\n          }\n        }\n      }\n    }\n  \n    .productVideo {\n      width: 100%; /* Adjust width as per your preference */\n      height: auto; /* Adjust height as per your preference */\n      margin-bottom: 2px; /* Adjust margin-bottom as per your preference */\n      max-width: 400px; /* Set a maximum width for the video */\n    }\n  \n    .allProductDisplay {\n      width: 100%;\n      height: 100%;\n    }\n  \n    button {\n      background-color: #C20114;\n      color: #0C120C;\n      border: none;\n      padding: 8px 16px;\n      text-align: center;\n      text-decoration: none;\n      display: inline-block;\n      font-size: 12px;\n      cursor: pointer;\n    }\n  }\n  \n\n\n  body {\n    margin: 0 20px; /* Add left and right margin */\n  }\n  \n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7189,7 +7258,73 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `.SingleProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height to 100% of the viewport */
+  background-color: #f2f2f2;
+}
+
+.singleProductContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.singleProductContainer h1 {
+  margin-bottom: 10px;
+}
+
+.singleProductVideo {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.singleProductDisplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.singleProductDisplay iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productInfo span {
+  margin-bottom: 10px;
+}
+
+.productInfo button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/SingleProducts.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,aAAA,EAAA,2CAAA;EACA,yBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,kBAAA;EACA,wCAAA;EACA,YAAA;AACJ;;AAEE;EACE,mBAAA;AACJ;;AAEE;EACE,WAAA;EACA,SAAA;EACA,sBAAA,EAAA,sBAAA;EACA,kBAAA;EACA,mBAAA;AACJ;;AAEE;EACE,kBAAA;EACA,MAAA;EACA,OAAA;EACA,WAAA;EACA,YAAA;AACJ;;AAEE;EACE,WAAA;EACA,YAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;AACJ;;AAEE;EACE,mBAAA;AACJ;;AAEE;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AACJ","sourcesContent":[".SingleProduct {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    height: 100vh; /* Set the height to 100% of the viewport */\n    background-color: #f2f2f2;\n  }\n  \n  .singleProductContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    padding: 20px;\n    background-color: #fff;\n    border-radius: 5px;\n    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);\n    margin: 20px;\n  }\n  \n  .singleProductContainer h1 {\n    margin-bottom: 10px;\n  }\n  \n  .singleProductVideo {\n    width: 100%;\n    height: 0;\n    padding-bottom: 56.25%; /* 16:9 aspect ratio */\n    position: relative;\n    margin-bottom: 20px;\n  }\n  \n  .singleProductDisplay {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n  }\n  \n  .singleProductDisplay iframe {\n    width: 100%;\n    height: 100%;\n  }\n  \n  .productInfo {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  \n  .productInfo span {\n    margin-bottom: 10px;\n  }\n  \n  .productInfo button {\n    background-color: #4caf50;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    cursor: pointer;\n  }\n  \n\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

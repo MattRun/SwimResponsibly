@@ -16,14 +16,14 @@ const SingleProduct = () => {
 
   return (
     <div className="SingleProduct">
-      <div className="productContainer">
+      <div className="singleProductContainer">
         <h1>{singleProduct.title}</h1>
         {singleProduct.artist && <span>Artist: {singleProduct.artist}</span>}
         <span>Price: {singleProduct.price}</span>
         <span>Description: {singleProduct.description}</span>
         {singleProduct.videoUrl && (
-          <div className="productVideo">
-            <div className="allProductDisplay">
+          <div className="singleProductVideo">
+            <div className="singleProductDisplay">
               <iframe
                 width="100%"
                 height="auto"

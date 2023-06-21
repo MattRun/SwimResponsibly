@@ -1,10 +1,14 @@
-body {
+/* body {
   font-family: sans-serif;
   background-size: cover;
   background-image: url('./assets/gifs/background.jpg');
   background-repeat: repeat;
+} */
+body{
+  background-image: url('./assets/gifs/blacknred.jpeg');
+  background-repeat: repeat;
+  background-size: cover;
 }
-
 a {
   text-decoration: none;
 }

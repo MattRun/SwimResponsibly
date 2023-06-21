@@ -17,17 +17,21 @@ const AllProducts = () => {
   console.log(allProducts); // Logging the products outside the JSX code
 
   return (
-  <body>
-    <div className="AllProducts">
-      <h1>Gallery</h1>
-      <h2>We have assembled a collective of over a hundred creators to empower emerging artists in sharing their digital art with the world.</h2>
-      <div className="productGrid">
+    <div className="AllProducts1">
+      <h1 className="header">Gallery</h1>
+      <hr className="separator" />
+      <div className="quote">
+        <p>
+          We have assembled a collective of over a hundred creators to empower
+          emerging artists in sharing their digital art with the world.
+        </p>
+      </div>
+      <div className="productGrid1">
         {allProducts.map((product) => (
           <Product key={product.id} product={product} />
-          ))}
+        ))}
       </div>
     </div>
-  </body>
   );
 };
 
