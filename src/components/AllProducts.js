@@ -12,8 +12,6 @@ const AllProducts = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  console.log(allProducts); // Logging the products outside the JSX code
-
   return (
     <div>
       <h1>List of All Products</h1>

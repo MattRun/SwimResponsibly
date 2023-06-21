@@ -36,6 +36,11 @@ module.exports = db.define('Product', {
     type: Sequelize.INTEGER, 
     allowNull: false
   },
+  quantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 1
+  },
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',

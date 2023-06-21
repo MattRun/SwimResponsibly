@@ -4,19 +4,35 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
+import { addItemToCart } from "../reducers/CartSlice";
 
 const SingleProduct = () => {
-    const { productId } = useParams();
+  const { productId } = useParams();
+  
   const dispatch = useDispatch();
+  
   const singleProduct = useSelector((state) => {
-    console.log('state.singleProduct', state.singleProduct.product)
     return state.singleProduct.product || {}
   });
-  console.log('singleProduct', singleProduct)
-    console.log('artist', singleProduct.artist)
 
-//   const { title, artist, description, price } = singleProduct;
+  const handleAddToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   
+    const existingItemIndex = cartItems.findIndex(item => item.id === singleProduct.id);
+  
+    if (existingItemIndex !== -1) {
+      // If the product exists, update its quantity
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].quantity += 1;
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    } else {
+      // If the product doesn't exist, add it to the cart
+      const updatedCartItems = [...cartItems, { ...singleProduct, quantity: 1 }];
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
+  
+    dispatch(addItemToCart(singleProduct));
+  };
 
   useEffect(() => {
     dispatch(fetchSingleProduct(productId));
@@ -28,13 +44,6 @@ const SingleProduct = () => {
     }
     return allProducts;
   };
-
-//   const getProductName = ( productId ) => {
-//     const product = handledErrorAllProducts().find(
-//       (name) => product.name === name
-//     );
-//     return product ? product.name : "There is no product by that name";
-//   };
 
   return (
     <div id="">
@@ -48,7 +57,7 @@ const SingleProduct = () => {
         <span>price: {singleProduct.price}</span>
         <span>description: {singleProduct.description}</span>
         <img src='singleProduct.imageUrl' />
-        <button type="button">Add to Cart</button>
+        <button type="button" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

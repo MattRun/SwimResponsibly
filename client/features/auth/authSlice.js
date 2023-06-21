@@ -60,6 +60,7 @@ export const authSlice = createSlice({
   reducers: {
     logout(state, action) {
       window.localStorage.removeItem(TOKEN);
+      window.localStorage.removeItem('cartItems');
       state.me = {};
       state.error = null;
     },
