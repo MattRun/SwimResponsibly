@@ -36,9 +36,6 @@ const Navigation = () => {
             {isAdmin && <Link className="nav-link" to="/admin">
               Admin
             </Link>} 
-            <Link className="nav-link" to="/cart">
-              CART
-            </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>

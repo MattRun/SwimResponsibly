@@ -40,6 +40,8 @@ const AppRoutes = () => {
             <>
               <Route path="/admin" element={<Admin />} />
               <Route path="/admin/:productId" element={<UpdateProductForm />} />
+              <Route path="/Checkout" element={<Payment />} />
+              <Route path="/PaymentSuccess" element={<PaymentSuccess />} /> 
             </>
           )}
         </Routes>
@@ -77,7 +79,7 @@ const AppRoutes = () => {
           </>
           
         )}
-             <Route path="/Checkout" element={<Payment />} />
+          <Route path="/Checkout" element={<Payment />} />
           <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
         </Routes>
       )}
