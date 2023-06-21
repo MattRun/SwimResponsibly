@@ -44,7 +44,6 @@ const Navigation = () => {
             {isAdmin && <Link className="nav-link" to="/admin">
               Admin
             </Link>} 
-              <button type="button" className="fa-solid fa-cart-shopping">cart</button>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
