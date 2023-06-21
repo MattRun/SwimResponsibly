@@ -6603,7 +6603,7 @@ var AllProducts = function AllProducts() {
   }, [dispatch]);
   console.log(allProducts); // Logging the products outside the JSX code
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("body", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "AllProducts"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "We have assembled a collective of over a hundred creators to empower emerging artists in sharing their digital art with the world."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "productGrid"
@@ -6612,7 +6612,7 @@ var AllProducts = function AllProducts() {
       key: product.id,
       product: product
     });
-  })));
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllProducts);
 
@@ -6690,42 +6690,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var SingleProduct = function SingleProduct() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
     productId = _useParams.productId;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var singleProduct = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    console.log('state.singleProduct', state.singleProduct.product);
     return state.singleProduct.product || {};
   });
-  console.log('singleProduct', singleProduct);
-  console.log('artist', singleProduct.artist);
-
-  //   const { title, artist, description, price } = singleProduct;
-
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_reducers_singleProductSlice__WEBPACK_IMPORTED_MODULE_2__.fetchSingleProduct)(productId));
   }, [dispatch, productId]);
-  var handledErrorAllProducts = function handledErrorAllProducts() {
-    if (!Array.isArray(allProducts)) {
-      return [];
-    }
-    return allProducts;
-  };
-
-  //   const getProductName = ( productId ) => {
-  //     const product = handledErrorAllProducts().find(
-  //       (name) => product.name === name
-  //     );
-  //     return product ? product.name : "There is no product by that name";
-  //   };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: ""
+    className: "SingleProduct"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), singleProduct.artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "artist: ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "price: ", singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "description: ", singleProduct.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "productContainer"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), singleProduct.artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Artist: ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Price: ", singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Description: ", singleProduct.description), singleProduct.videoUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "productVideo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "allProductDisplay"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
+    width: "100%",
+    height: "auto",
+    src: singleProduct.videoUrl,
+    title: "Video",
+    frameBorder: "0",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+    allowFullScreen: true,
+    muted: true
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button"
   }, "Add to Cart")));
 };
@@ -7137,7 +7129,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   font-size: 18px;
   background-color: transparent;
   color: #C7D6D5; /* Change the color of the words in the title */
-  border: none; /* Remove border properties for the title */
 }
 .Product .productTitle h3 a {
   color: #ECEBF3; /* Change the color of the hyperlink title */
@@ -7161,13 +7152,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   background-color: #4caf50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;;AAEE;EACE,aAAA;EACA,2DAAA,EAAA,gDAAA;EACA,cAAA,EAAA,oCAAA;EACA,gBAAA;EACA,qBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA,EAAA,mDAAA;EACA,yBAAA,EAAA,+CAAA;EACA,kBAAA;EACA,sCAAA,EAAA,yCAAA;EACA,yBAAA,EAAA,uBAAA;AACJ;AACI;EACE,mBAAA,EAAA,2CAAA;EACA,sCAAA,EAAA,6BAAA;EACA,mBAAA,EAAA,qCAAA;EACA,yBAAA,EAAA,8CAAA;AACN;AACM;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA,EAAA,+CAAA;EACA,YAAA,EAAA,2CAAA;AACR;AACQ;EACE,cAAA,EAAA,4CAAA;EACA,qBAAA,EAAA,qBAAA;AACV;AACU;EAEE,cAAA,EAAA,kDAAA;EACA,0BAAA,EAAA,2BAAA;AAAZ;AAMI;EACE,WAAA,EAAA,wCAAA;EACA,YAAA,EAAA,yCAAA;EACA,kBAAA,EAAA,gDAAA;EACA,gBAAA,EAAA,sCAAA;AAJN;AAOI;EACE,WAAA;EACA,YAAA;AALN;AAQI;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AANN","sourcesContent":[".AllProducts {\n    text-align: center;\n  }\n  \n  .productGrid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */\n    grid-gap: 40px; /* Adjust the gap between products */\n    margin-top: 20px;\n    justify-items: center;\n  }\n  \n  .Product {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 10px;\n    position: relative; /* Add position property for stacking the borders */\n    background-color: #0C120C; /* Background color for the additional border */\n    border-radius: 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */\n    border: 2px solid #C20114; /* Add another border */\n  \n    .productTitle {\n      border-radius: 10px; /* Adjust the border-radius for the title */\n      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */\n      margin-bottom: 10px; /* Adjust margin-bottom for spacing */\n      background-color: #6D7275; /* Change the background color for the title */\n  \n      h3 {\n        margin: 0;\n        padding: 5px 10px;\n        font-family: \"Arial\", sans-serif;\n        font-size: 18px;\n        background-color: transparent;\n        color: #C7D6D5; /* Change the color of the words in the title */\n        border: none; /* Remove border properties for the title */\n  \n        a {\n          color: #ECEBF3; /* Change the color of the hyperlink title */\n          text-decoration: none; /* Remove underline */\n  \n          &:hover,\n          &:active {\n            color: #C20114; /* Change the hover color of the hyperlink title */\n            text-decoration: underline; /* Add underline on hover */\n          }\n        }\n      }\n    }\n  \n    .productVideo {\n      width: 100%; /* Adjust width as per your preference */\n      height: auto; /* Adjust height as per your preference */\n      margin-bottom: 2px; /* Adjust margin-bottom as per your preference */\n      max-width: 400px; /* Set a maximum width for the video */\n    }\n  \n    .allProductDisplay {\n      width: 100%;\n      height: 100%;\n    }\n  \n    button {\n      background-color: #4caf50;\n      color: white;\n      border: none;\n      padding: 10px 20px;\n      text-align: center;\n      text-decoration: none;\n      display: inline-block;\n      font-size: 16px;\n      cursor: pointer;\n    }\n  }\n  "],"sourceRoot":""}]);
+}
+
+body {
+  margin: 0 20px; /* Add left and right margin */
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;;AAEE;EACE,aAAA;EACA,2DAAA,EAAA,gDAAA;EACA,cAAA,EAAA,oCAAA;EACA,gBAAA;EACA,qBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA,EAAA,mDAAA;EACA,yBAAA,EAAA,+CAAA;EACA,kBAAA;EACA,sCAAA,EAAA,yCAAA;EACA,yBAAA,EAAA,uBAAA;AACJ;AACI;EACE,mBAAA,EAAA,2CAAA;EACA,sCAAA,EAAA,6BAAA;EACA,mBAAA,EAAA,qCAAA;EACA,yBAAA,EAAA,8CAAA;AACN;AACM;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA,EAAA,+CAAA;AACR;AAEQ;EACE,cAAA,EAAA,4CAAA;EACA,qBAAA,EAAA,qBAAA;AAAV;AAEU;EAEE,cAAA,EAAA,kDAAA;EACA,0BAAA,EAAA,2BAAA;AADZ;AAOI;EACE,WAAA,EAAA,wCAAA;EACA,YAAA,EAAA,yCAAA;EACA,kBAAA,EAAA,gDAAA;EACA,gBAAA,EAAA,sCAAA;AALN;AAQI;EACE,WAAA;EACA,YAAA;AANN;AASI;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPN;;AAaE;EACE,cAAA,EAAA,8BAAA;AAVJ","sourcesContent":[".AllProducts {\n    text-align: center;\n  }\n  \n  .productGrid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */\n    grid-gap: 40px; /* Adjust the gap between products */\n    margin-top: 20px;\n    justify-items: center;\n  }\n  \n  .Product {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 10px;\n    position: relative; /* Add position property for stacking the borders */\n    background-color: #0C120C; /* Background color for the additional border */\n    border-radius: 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */\n    border: 2px solid #C20114; /* Add another border */\n  \n    .productTitle {\n      border-radius: 10px; /* Adjust the border-radius for the title */\n      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */\n      margin-bottom: 10px; /* Adjust margin-bottom for spacing */\n      background-color: #6D7275; /* Change the background color for the title */\n  \n      h3 {\n        margin: 0;\n        padding: 5px 10px;\n        font-family: \"Arial\", sans-serif;\n        font-size: 18px;\n        background-color: transparent;\n        color: #C7D6D5; /* Change the color of the words in the title */\n        // border: none; /* Remove border properties for the title */\n  \n        a {\n          color: #ECEBF3; /* Change the color of the hyperlink title */\n          text-decoration: none; /* Remove underline */\n  \n          &:hover,\n          &:active {\n            color: #C20114; /* Change the hover color of the hyperlink title */\n            text-decoration: underline; /* Add underline on hover */\n          }\n        }\n      }\n    }\n  \n    .productVideo {\n      width: 100%; /* Adjust width as per your preference */\n      height: auto; /* Adjust height as per your preference */\n      margin-bottom: 2px; /* Adjust margin-bottom as per your preference */\n      max-width: 400px; /* Set a maximum width for the video */\n    }\n  \n    .allProductDisplay {\n      width: 100%;\n      height: 100%;\n    }\n  \n    button {\n      background-color: #4caf50;\n      color: white;\n      border: none;\n      padding: 8px 16px;\n      text-align: center;\n      text-decoration: none;\n      display: inline-block;\n      font-size: 12px;\n      cursor: pointer;\n    }\n  }\n  \n\n\n  body {\n    margin: 0 20px; /* Add left and right margin */\n  }\n  \n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

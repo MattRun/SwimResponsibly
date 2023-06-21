@@ -34,7 +34,7 @@
         font-size: 18px;
         background-color: transparent;
         color: #C7D6D5; /* Change the color of the words in the title */
-        border: none; /* Remove border properties for the title */
+        // border: none; /* Remove border properties for the title */
   
         a {
           color: #ECEBF3; /* Change the color of the hyperlink title */
@@ -65,12 +65,18 @@
       background-color: #4caf50;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 8px 16px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 16px;
+      font-size: 12px;
       cursor: pointer;
     }
+  }
+  
+
+
+  body {
+    margin: 0 20px; /* Add left and right margin */
   }
   
