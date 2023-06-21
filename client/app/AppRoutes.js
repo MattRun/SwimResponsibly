@@ -5,11 +5,15 @@ import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import { me } from "../../src/store/index";
 import AllProducts from "../../src/components/AllProducts";
-import Navigation from "../features/navbar/Navigation";
 import SingleProduct from "../../src/components/SingleProduct";
 import CartPage from "../../src/components/CartPage";
 import Admin from "../../src/components/Admin/Admin";
 import UpdateProductForm from "../../src/components/Admin/UpdateFeature/UpdateProduct";
+import Navigation from '../features/navbar/Navigation';
+import Payment from '../../src/components/Checkout/Checkout';
+import PaymentSuccess from '../../src/components/Checkout/PaymentSuccess';
+import PaymentCancel from '../../src/components/Checkout/PaymentCancel';
+
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -73,6 +77,8 @@ const AppRoutes = () => {
           </>
           
         )}
+             <Route path="/Checkout" element={<Payment />} />
+          <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
         </Routes>
       )}
     </div>

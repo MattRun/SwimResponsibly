@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItemsFromCart, updateItemQuantity } from "../reducers/CartSlice";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart.items)
@@ -33,7 +35,7 @@ const CartPage = () => {
         <div>
             <h2>My Cart</h2>
             {cartItems.length === 0 ? (
-                <p>You're cart is empty</p>
+                <p>Your cart is empty</p>
             ) : (
                 <Fragment>
                     <ul>
@@ -52,7 +54,9 @@ const CartPage = () => {
                         ))}
                     </ul>
                     <p>Cart Total: ${calculateTotalPrice()}</p>
-                    <button type="button">Checkout</button>
+                    <button>
+        <Link to={`/Checkout`}>Checkout</Link>
+      </button>
                 </Fragment>
             )}
         </div>
