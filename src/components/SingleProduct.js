@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
+<<<<<<< HEAD
 import { addItemToCart } from "../reducers/CartSlice";
 
 const SingleProduct = () => {
@@ -33,11 +33,20 @@ const SingleProduct = () => {
   
     dispatch(addItemToCart(singleProduct));
   };
+=======
+import "./scss/SingleProducts.scss";
+
+const SingleProduct = () => {
+  const { productId } = useParams();
+  const dispatch = useDispatch();
+  const singleProduct = useSelector((state) => state.singleProduct.product || {});
+>>>>>>> css
 
   useEffect(() => {
     dispatch(fetchSingleProduct(productId));
   }, [dispatch, productId]);
 
+<<<<<<< HEAD
   const handledErrorAllProducts = () => {
     if (!Array.isArray(allProducts)) {
       return [];
@@ -58,6 +67,32 @@ const SingleProduct = () => {
         <span>description: {singleProduct.description}</span>
         <img src='singleProduct.imageUrl' />
         <button type="button" onClick={handleAddToCart}>Add to Cart</button>
+=======
+  return (
+    <div className="SingleProduct">
+      <div className="singleProductContainer">
+        <h1>{singleProduct.title}</h1>
+        {singleProduct.artist && <span>Artist: {singleProduct.artist}</span>}
+        <span>Price: {singleProduct.price}</span>
+        <span>Description: {singleProduct.description}</span>
+        {singleProduct.videoUrl && (
+          <div className="singleProductVideo">
+            <div className="singleProductDisplay">
+              <iframe
+                width="100%"
+                height="auto"
+                src={singleProduct.videoUrl}
+                title="Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                muted
+              ></iframe>
+            </div>
+          </div>
+        )}
+        <button type="button">Add to Cart</button>
+>>>>>>> css
       </div>
     </div>
   );
