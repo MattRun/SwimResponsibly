@@ -7112,7 +7112,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts1 {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #C20114;
+  color: black;
 }
 
 .separator {
@@ -7128,14 +7128,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts1 {
 .quote p {
   font-size: 20px; /* Increase font size */
   font-style: italic;
-  color: #C20114;
+  color: black;
 }
 
 .productGrid1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/AllProducts.scss"],"names":[],"mappings":"AAkBA;EACI,aAAA;EACA,sBAAA,EAAA,qBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,iBAAA;EACA,kBAAA;EACA,mBAAA;EACA,cAAA;AAjBJ;;AAoBE;EACE,0BAAA,EAAA,oCAAA;EACA,cAAA,EAAA,gCAAA;AAjBJ;;AAoBE;EACE,kBAAA;EACA,mBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,kBAAA;EACA,cAAA;AAjBJ;;AAoBE;EACE,aAAA;EACA,2DAAA;EACA,cAAA;AAjBJ","sourcesContent":["// .rows:after{\n//     content: \"\";\n//     display: table;\n//     clear: both;\n// }\n\n// .AllProducts { /* Updated selector */\n//     display: flex;\n//     flex-wrap: wrap;\n//     flex-direction: column;\n//     align-items: center;\n//   }\n  \n//   .AllProducts > * { /* Updated selector */\n//     flex: 0 0 calc(33.33% - 10px);\n//     margin: 5px;\n//   }\n\n.AllProducts1 {\n    padding: 20px;\n    border: 1px solid #ccc; /* Add border style */\n  }\n  \n  .header {\n    font-size: 36px; /* Increase font size */\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n    color: #C20114;\n  }\n  \n  .separator {\n    border-top: 2px solid #ccc; /* Add a horizontal line separator */\n    margin: 20px 0; /* Adjust the margin as needed */\n  }\n  \n  .quote {\n    text-align: center;\n    margin-bottom: 20px;\n  }\n  \n  .quote p {\n    font-size: 20px; /* Increase font size */\n    font-style: italic;\n    color: #C20114;\n  }\n  \n  .productGrid1 {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    grid-gap: 20px;\n  }\n  "],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/AllProducts.scss"],"names":[],"mappings":"AAkBA;EACI,aAAA;EACA,sBAAA,EAAA,qBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,iBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;AAjBJ;;AAoBE;EACE,0BAAA,EAAA,oCAAA;EACA,cAAA,EAAA,gCAAA;AAjBJ;;AAoBE;EACE,kBAAA;EACA,mBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,kBAAA;EACA,YAAA;AAjBJ;;AAoBE;EACE,aAAA;EACA,2DAAA;EACA,cAAA;AAjBJ","sourcesContent":["// .rows:after{\n//     content: \"\";\n//     display: table;\n//     clear: both;\n// }\n\n// .AllProducts { /* Updated selector */\n//     display: flex;\n//     flex-wrap: wrap;\n//     flex-direction: column;\n//     align-items: center;\n//   }\n  \n//   .AllProducts > * { /* Updated selector */\n//     flex: 0 0 calc(33.33% - 10px);\n//     margin: 5px;\n//   }\n\n.AllProducts1 {\n    padding: 20px;\n    border: 1px solid #ccc; /* Add border style */\n  }\n  \n  .header {\n    font-size: 36px; /* Increase font size */\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n    color: black;\n  }\n  \n  .separator {\n    border-top: 2px solid #ccc; /* Add a horizontal line separator */\n    margin: 20px 0; /* Adjust the margin as needed */\n  }\n  \n  .quote {\n    text-align: center;\n    margin-bottom: 20px;\n  }\n  \n  .quote p {\n    font-size: 20px; /* Increase font size */\n    font-style: italic;\n    color: black;\n  }\n  \n  .productGrid1 {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    grid-gap: 20px;\n  }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

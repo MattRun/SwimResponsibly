@@ -51,7 +51,7 @@ const Product = ({ product }) => {
       </div>
       <div className="productVideo">
         <div className="allProductDisplay">
-          <iframe
+          <iframe 
             width="100%"
             height="auto"
             src={product.videoUrl}
