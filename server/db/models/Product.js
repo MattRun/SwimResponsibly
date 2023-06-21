@@ -43,7 +43,7 @@ module.exports = db.define('Product', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: 'https://www.creativeuncut.com/gallery-22/art/bdff-background-art.jpg',
+    defaultValue: "https://ekit.co.uk/GalleryEntries/ecommerce_solutions_and_services/MedRes_Product-presentation-2.jpg?q=27012012153123",
   },
   videoUrl: {
     type: Sequelize.STRING,

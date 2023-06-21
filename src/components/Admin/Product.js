@@ -35,8 +35,8 @@ const Product = ({ product }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            muted // Add the 'muted' attribute to enable autoplay
-          ></iframe>
+            muted 
+          />
         </div>
       </div>
       <button>
