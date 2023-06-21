@@ -1,11 +1,12 @@
 import React from 'react';
-<<<<<<< HEAD
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addItemToCart } from '../reducers/CartSlice';
+import { useDispatch } from 'react-redux';
+import './scss/Product.scss';
+import './scss/AllProducts.scss';
 
 const Product = ({ product }) => {
- const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
  const handleAddToCart = () => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -25,23 +26,6 @@ const Product = ({ product }) => {
 
   dispatch(addItemToCart(product));
 };
-
-  return (
-    <div className='Product'>
-      <h3>
-        <Link to={`/shop/${product.id}`}>
-        {product.title}
-        </Link>
-      </h3>
-      <button onClick={handleAddToCart}>purchase/addToCart</button>
-    
-    </div> 
-=======
-import { Link } from 'react-router-dom';
-import './scss/Product.scss';
-import './scss/AllProducts.scss';
-
-const Product = ({ product }) => {
   return (
     <div className="Product">
       <div className="productTitle">
@@ -63,9 +47,8 @@ const Product = ({ product }) => {
           ></iframe>
         </div>
       </div>
-      <button onClick={() => {}}>Purchase/Add to Cart</button>
+      <button onClick={handleAddToCart}>Purchase/Add to Cart</button>
     </div>
->>>>>>> css
   );
 };
 

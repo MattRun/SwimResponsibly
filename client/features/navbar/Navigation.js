@@ -15,14 +15,6 @@ const Navigation = () => {
     navigate('/home');
     window.location.reload();
 
-    // localStorage.removeItem('cartItems')
-    // .then(() => {
-    //   navigate('/home');
-    // })
-    // .catch((error) => {
-    //   // Handle any errors that occurred while removing cart items
-    //   console.log(error);
-    // });
   };
 
   return (
@@ -44,7 +36,9 @@ const Navigation = () => {
             {isAdmin && <Link className="nav-link" to="/admin">
               Admin
             </Link>} 
-              <button type="button" className="fa-solid fa-cart-shopping">cart</button>
+            <Link className="nav-link" to="/cart">
+              CART
+            </Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
