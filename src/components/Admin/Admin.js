@@ -15,8 +15,6 @@ function Admin() {
 
   return (
     <div>
-      <div>Admin</div>
-
       {!isAddingProduct && (
         <button onClick={handleAddProduct}>Add Product</button>
       )}
