@@ -9,6 +9,8 @@ import AllProductsSlice from "../reducers/AllProductsSlice";
 import singleProductSlice from "../reducers/singleProductSlice";
 import AdminAllProductsSlice from "../reducers/admin/AdminAllProductsSlice.js";
 import AdminUpdateProducSlice from "../reducers/admin/AdminUpdateProductSlice";
+import cartReducer from '../reducers/CartSlice';
+
 
 const storedCartItems = localStorage.getItem('cartItems');
 const initialState = {
