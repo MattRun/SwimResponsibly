@@ -17,7 +17,7 @@ export const fetchSingleProduct = createAsyncThunk(
 
 export const updateProduct = createAsyncThunk(
   "singleProduct/updateProduct",
-  async ({ id, title, artist, year, description, price, imageUrl }) => {
+  async ({ id, title, artist, year, description, price, videoUrl }) => {
     try {
       const response = await axios.put(`/api/admin/${id}`, {
         title,
@@ -25,7 +25,7 @@ export const updateProduct = createAsyncThunk(
         year,
         description,
         price,
-        imageUrl,
+        videoUrl,
       });
       return response.data;
     } catch (err) {

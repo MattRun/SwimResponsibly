@@ -6438,8 +6438,8 @@ var AddProductForm = function AddProductForm(_ref) {
     setPrice = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState12 = _slicedToArray(_useState11, 2),
-    imageUrl = _useState12[0],
-    setImageUrl = _useState12[1];
+    videoUrl = _useState12[0],
+    setvideoUrl = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState14 = _slicedToArray(_useState13, 2),
     error = _useState14[0],
@@ -6472,17 +6472,16 @@ var AddProductForm = function AddProductForm(_ref) {
               year: year,
               description: description,
               price: price,
-              imageUrl: imageUrl
+              videoUrl: videoUrl || "https://giphy.com/embed/UQQQn0Vau63K4q3An7"
             }));
           case 8:
             response = _context.sent;
-            // Reset form fields and error message
             setTitle("");
             setArtist("");
             setYear("");
             setDescription("");
             setPrice("");
-            setImageUrl("");
+            setvideoUrl("");
             setError("");
             _context.next = 22;
             break;
@@ -6563,14 +6562,14 @@ var AddProductForm = function AddProductForm(_ref) {
       return setPrice(e.target.value);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
-    htmlFor: "image"
-  }, "Image:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    placeholder: "Enter Image:",
-    type: "link",
-    id: "image",
-    value: imageUrl,
+    htmlFor: "videoUrl"
+  }, "Gif:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    placeholder: "Enter Gif Link:",
+    type: "text",
+    id: "videoUrl",
+    value: videoUrl,
     onChange: function onChange(e) {
-      return setImageUrl(e.target.value);
+      return setvideoUrl(e.target.value);
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "buttons-container"
@@ -6646,10 +6645,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducers_admin_AdminAllProductsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/admin/AdminAllProductsSlice */ "./src/reducers/admin/AdminAllProductsSlice.js");
 /* harmony import */ var _Product__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product */ "./src/components/Admin/Product.js");
-/* harmony import */ var _AddFeature_AddProductForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddFeature/AddProductForm */ "./src/components/Admin/AddFeature/AddProductForm.js");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _scss_AllProduct_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scss/AllProduct.scss */ "./src/components/Admin/scss/AllProduct.scss");
-
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var _scss_AllProduct_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scss/AllProduct.scss */ "./src/components/Admin/scss/AllProduct.scss");
 
 
 
@@ -6666,7 +6663,7 @@ var AllProducts = function AllProducts() {
     className: "productGrid1"
   }, products.map(function (product) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      key: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
+      key: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
       product: product
     });
   }));
@@ -6824,15 +6821,15 @@ var UpdateProductForm = function UpdateProductForm() {
     setPrice = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState12 = _slicedToArray(_useState11, 2),
-    imageUrl = _useState12[0],
-    setImageUrl = _useState12[1];
+    videoUrl = _useState12[0],
+    setVideoUrl = _useState12[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setTitle(product.title || "");
     setArtist(product.artist || "");
     setYear(product.year || "");
     setDescription(product.description || "");
     setPrice(product.price || "");
-    setImageUrl(product.imageUrl || "");
+    setVideoUrl(product.videoUrl || "");
   }, [product]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log("Fetching single product...");
@@ -6845,6 +6842,14 @@ var UpdateProductForm = function UpdateProductForm() {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
+            // Perform validation
+            if (!(!title || !artist || !year || !videoUrl)) {
+              _context.next = 4;
+              break;
+            }
+            alert("All fields are required");
+            return _context.abrupt("return");
+          case 4:
             updatedProduct = {
               id: productId,
               title: title,
@@ -6852,25 +6857,25 @@ var UpdateProductForm = function UpdateProductForm() {
               year: year,
               description: description,
               price: price,
-              imageUrl: imageUrl
+              videoUrl: videoUrl
             };
-            _context.prev = 2;
-            _context.next = 5;
+            _context.prev = 5;
+            _context.next = 8;
             return dispatch((0,_reducers_admin_AdminUpdateProductSlice__WEBPACK_IMPORTED_MODULE_2__.updateProduct)(updatedProduct));
-          case 5:
+          case 8:
             navigate("/admin");
             console.log("Updated Product:", updatedProduct);
-            _context.next = 12;
+            _context.next = 15;
             break;
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](2);
-            console.log("Update failed:", _context.t0);
           case 12:
+            _context.prev = 12;
+            _context.t0 = _context["catch"](5);
+            console.log("Update failed:", _context.t0);
+          case 15:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[2, 9]]);
+      }, _callee, null, [[5, 12]]);
     }));
     return function handleSubmit(_x2) {
       return _ref.apply(this, arguments);
@@ -6937,13 +6942,13 @@ var UpdateProductForm = function UpdateProductForm() {
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "image"
-  }, "Image:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    placeholder: "Enter Image:",
+  }, "Gif Link:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    placeholder: "Enter Gif Link:",
     type: "link",
     id: "image",
-    value: imageUrl,
+    value: videoUrl,
     onChange: function onChange(e) {
-      return setImageUrl(e.target.value);
+      return setVideoUrl(e.target.value);
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "buttons-container"
@@ -7671,11 +7676,11 @@ var fetchSingleProduct = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.create
 }());
 var updateProduct = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("singleProduct/updateProduct", /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_ref2) {
-    var id, title, artist, year, description, price, imageUrl, response;
+    var id, title, artist, year, description, price, videoUrl, response;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          id = _ref2.id, title = _ref2.title, artist = _ref2.artist, year = _ref2.year, description = _ref2.description, price = _ref2.price, imageUrl = _ref2.imageUrl;
+          id = _ref2.id, title = _ref2.title, artist = _ref2.artist, year = _ref2.year, description = _ref2.description, price = _ref2.price, videoUrl = _ref2.videoUrl;
           _context2.prev = 1;
           _context2.next = 4;
           return axios__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/admin/".concat(id), {
@@ -7684,7 +7689,7 @@ var updateProduct = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsync
             year: year,
             description: description,
             price: price,
-            imageUrl: imageUrl
+            videoUrl: videoUrl
           });
         case 4:
           response = _context2.sent;
