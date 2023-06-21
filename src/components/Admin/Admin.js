@@ -15,6 +15,7 @@ function Admin() {
 
   return (
     <div>
+      <div >
       {!isAddingProduct && (
         <button onClick={handleAddProduct}>Add Product</button>
       )}
@@ -24,6 +25,7 @@ function Admin() {
           <AddProductForm onCancel={handleCancelAddProduct} />
         </>
       )}
+      </div>
 
       <AllProducts />
     </div>

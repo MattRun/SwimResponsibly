@@ -6696,11 +6696,11 @@ function Admin() {
   var handleCancelAddProduct = function handleCancelAddProduct() {
     setIsAddingProduct(false);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, !isAddingProduct && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, !isAddingProduct && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: handleAddProduct
   }, "Add Product"), isAddingProduct && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AddFeature_AddProductForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onCancel: handleCancelAddProduct
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Admin_AllProducts__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Admin_AllProducts__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Admin);
 
