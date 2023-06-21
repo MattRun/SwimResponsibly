@@ -11,6 +11,9 @@ import Navbar from '../features/navbar/Navbar';
 import Home2 from '../features/home/home2'
 import SingleProduct from '../../src/components/SingleProduct';
 import CartPage from '../../src/components/CartPage';
+import Payment from '../../src/components/Checkout/Checkout';
+import PaymentSuccess from '../../src/components/Checkout/PaymentSuccess';
+import PaymentCancel from '../../src/components/Checkout/PaymentCancel';
 
 
 const AppRoutes = () => {
@@ -71,8 +74,8 @@ const AppRoutes = () => {
               path='/cart'
               element={<CartPage />}
              />
-             <Route path="/payment" element={<Payment />} />
-          <Route path="/paymentmade" element={<PaymentSUccess />} />
+             <Route path="/Checkout" element={<Payment />} />
+          <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
         </Routes>
       )}
     </div>
