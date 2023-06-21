@@ -18,20 +18,20 @@ router.get("/", async (req, res, next) => {
 // GET /api/product/:id  get a product current information
 router.get('/:id', async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params
 
-    const product = await Product.findByPk(id);
+    const product = await Product.findByPk(id)
+    console.log(product)
 
     if (!product) {
-      return res.status(404).send('Product not found');
+      return res.status(404).send('Product not found')
     }
 
-    res.send(product);
-  } catch (error) {
-    next(error);
+    res.send(product)
+  } catch (err) {
+    console.error(err)
   }
-});
-
+})
 // PUT /api/campuses/:id
 router.put('/:id', async (req, res, next) => {
   try {

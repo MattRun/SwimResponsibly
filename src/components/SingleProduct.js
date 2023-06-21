@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
 
-
-
-
 const SingleProduct = () => {
     const { productId } = useParams();
   const dispatch = useDispatch();

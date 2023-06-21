@@ -16,7 +16,8 @@ const store = configureStore({
     products: AllProductsSlice,
     singleProduct: singleProductSlice,
     adminProducts: AdminAllProductsSlice,
-    adminProduct: AdminUpdateProducSlice,
+    AdminsingleProduct: AdminUpdateProducSlice,
+    
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

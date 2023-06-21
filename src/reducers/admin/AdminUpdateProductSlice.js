@@ -2,10 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchSingleProduct = createAsyncThunk(
-  "singleProduct/fetchSingleProduct",
+  "singleProduct/adminfetchSingleProduct",
   async (id) => {
     try {
       const response = await axios.get(`/api/admin/${id}`);
+      console.log("axios", response.data)
       return response.data;
     } catch (err) {
       console.log(err);
@@ -34,22 +35,24 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-const singleProductSlice = createSlice({
-  name: "singleProduct",
+const AdminsingleProduct = createSlice({
+  name: "singleProductAdmin",
   initialState: {
-    product: {},
+    adminSingleproduct: {},
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
-      state.product = action.payload;
+      state.adminSingleproduct= { ...state.adminSingleproduct, ...action.payload }
     });
     builder.addCase(updateProduct.fulfilled, (state, action) => {
-      state.product = action.payload;
+      state.adminSingleproduct = action.payload;
     });
   },
 });
 
-export const selectSingleProduct = (state) => state.singleProduct;
+ export const selectSingleProduct = (state) => {
+  return state.AdminsingleProduct.adminSingleproduct;
+}
 
-export default singleProductSlice.reducer;
+export default AdminsingleProduct.reducer;

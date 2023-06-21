@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-
-
 import {
   fetchSingleProduct,
-  selectSingleProduct,
   updateProduct,
+  selectSingleProduct
 } from "../../../reducers/admin/AdminUpdateProductSlice";
 
 const UpdateProductForm = () => {
-  const { productId } = useParams();
+  const {productId}  = useParams();
   const dispatch = useDispatch();
-  const product = useSelector(selectSingleProduct);
   const navigate = useNavigate();
+  const product = useSelector(selectSingleProduct);
   
 
-  useEffect(() => {
-    dispatch(fetchSingleProduct(productId));
-  }, [dispatch, productId]);
-
-  const [title, setTitle] = useState("");
+  
+  const [title, setTitle] = useState();
   const [artist, setArtist] = useState("");
   const [year, setYear] = useState("");
   const [description, setDescription] = useState("");
@@ -35,6 +30,11 @@ const UpdateProductForm = () => {
     setPrice(product.price || "");
     setImageUrl(product.imageUrl || "");
   }, [product]);
+  useEffect(() => {
+    console.log("Fetching single product...");
+    dispatch(fetchSingleProduct(productId));
+  }, [dispatch, productId]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,9 +59,12 @@ const UpdateProductForm = () => {
   const handleCancel = () => {
     navigate("/admin");
   };
+
   
   return (
     <>
+    <h1>{product.title}</h1>
+    <h2></h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title:</label>
@@ -123,7 +126,7 @@ const UpdateProductForm = () => {
             onChange={(e) => setImageUrl(e.target.value)}/>
 
           </div>
-          <button type="submit" onClik>Update Product</button>
+          <button type="submit" >Update Product</button>
           <button type="button" onClick={handleCancel}>
           Cancel
         </button>

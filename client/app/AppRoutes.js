@@ -30,12 +30,14 @@ const AppRoutes = () => {
         <Route path="/shop/:productId" element={<SingleProduct />} />
 
         {isLoggedIn && isAdmin && (
+          <>
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/:productId" element={<UpdateProductForm  />} />
+          </>
+          
         )}
 
-        {isLoggedIn && isAdmin && (
-          <Route path="/admin/:productId" element={<UpdateProductForm />} />
-        )}
+        
 
         {!isLoggedIn && (
           <>
