@@ -6,9 +6,6 @@ import { fetchSingleProduct } from "../reducers/singleProductSlice";
 import { selectSingleProduct } from "../reducers/singleProductSlice";
 import { addItemToCart } from "../reducers/CartSlice";
 
-
-
-
 const SingleProduct = () => {
   const { productId } = useParams();
   

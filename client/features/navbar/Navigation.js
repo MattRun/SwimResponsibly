@@ -1,11 +1,8 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import React from "react";
-import { Fragment } from "react";
+import React, { Fragment }from "react";
 import './navigation.styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../../src/store/index';
-import Home from "../home/Home";
-import Admin from "../../../src/components/Admin/Admin";
 
 const Navigation = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
