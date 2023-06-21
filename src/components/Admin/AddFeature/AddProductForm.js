@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../reducers/admin/AdminAllProductsSlice";
 import { v4 as uuidv4 } from 'uuid';
-
+import "./addProduct.styles.scss"
 
 
 const AddProductForm = ({ onCancel }) => {
@@ -55,10 +55,11 @@ const AddProductForm = ({ onCancel }) => {
     };
 
   return (
-    <div className="Add-SC">
+    <div className="form-container">
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="inputs-container">
+        <div className="input-container">
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -118,10 +119,13 @@ const AddProductForm = ({ onCancel }) => {
             onChange={(e) => setImageUrl(e.target.value)}
           />
         </div>
+        </div>
+        <div className="buttons-container">
         <button type="submit">Add Product</button>
         <button type="button" onClick={onCancel}>
             Cancel
-          </button>
+          </button></div>
+        
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import {
   updateProduct,
   selectSingleProduct
 } from "../../../reducers/admin/AdminUpdateProductSlice";
+import './updateProduct.styles.scss'
 
 const UpdateProductForm = () => {
   const {productId}  = useParams();
@@ -62,10 +63,12 @@ const UpdateProductForm = () => {
 
   
   return (
-    <>
-    <h1>{product.title}</h1>
-    <h2></h2>
+    
+    
+    <div className="form-container">
+      <h1>{product.title}</h1>
       <form onSubmit={handleSubmit}>
+        <div className="inputs-container">
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -126,12 +129,16 @@ const UpdateProductForm = () => {
             onChange={(e) => setImageUrl(e.target.value)}/>
 
           </div>
+          </div>
+          <div className="buttons-container">
           <button type="submit">Update Product</button>
           <button type="button" onClick={handleCancel}>
           Cancel
         </button>
+        </div>
           </form>
-        </>
+          </div>
+      
         );
         };
         
