@@ -29,8 +29,8 @@
     "pg": "^8.8.0",
     "sass": "^1.63.4",
     "sequelize": "^6.25.3",
-    "uuid": "^9.0.0",
-    "stripe": "^12.9.0"
+    "stripe": "^12.9.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

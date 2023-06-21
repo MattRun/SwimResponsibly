@@ -62,11 +62,62 @@ const AppRoutes = () => {
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
           />
-          <Route path="/shop" element={<AllProducts />} />
-          <Route path="/shop/:productId" element={<SingleProduct />} />
-          <Route path="/cart" element={<CartPage />} />
+            <Route
+              path="/login"
+              element={<AuthForm name="login" displayName="Login" />}
+            />
+            <Route
+              path="/home"
+              element={<Home />}
+            />
+            <Route
+              path="/signup"
+              element={<AuthForm name="signup" displayName="Sign Up" />}
+            />
+            <Route
+              path="/shop"
+              element={<AllProducts />}
+            />
+            <Route 
+              path='/shop/:productId' 
+              element={<SingleProduct />}
+              />
+            <Route 
+              path='/cart'
+              element={<CartPage />}
+            />
+            {isLoggedIn && isAdmin && (
+          <>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/:productId" element={<UpdateProductForm  />} />
+          </>
+          
+        )}
         </Routes>
       )}
+      {/* <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/shop" element={<AllProducts />} />
+        <Route path="/shop/:productId" element={<SingleProduct />} />
+
+        {isLoggedIn && isAdmin && (
+          <>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/:productId" element={<UpdateProductForm  />} />
+          </>
+          
+        )} */}
+
+        
+
+        {/* {!isLoggedIn && (
+          <>
+            <Route path="/login" element={<AuthForm name="login" displayName="Login" />} />
+            <Route path="/signup" element={<AuthForm name="signup" displayName="Sign Up" />} />
+          </>
+        )}
+      </Routes> */}
     </div>
   );
 };
