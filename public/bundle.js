@@ -5945,7 +5945,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_components_AllProducts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/AllProducts */ "./src/components/AllProducts.js");
 /* harmony import */ var _src_components_SingleProduct__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/components/SingleProduct */ "./src/components/SingleProduct.js");
 /* harmony import */ var _src_components_CartPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/components/CartPage */ "./src/components/CartPage.js");
-/* harmony import */ var _src_components_CartPage__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_src_components_CartPage__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _src_components_Admin_Admin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/components/Admin/Admin */ "./src/components/Admin/Admin.js");
 /* harmony import */ var _src_components_Admin_UpdateFeature_UpdateProduct__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/components/Admin/UpdateFeature/UpdateProduct */ "./src/components/Admin/UpdateFeature/UpdateProduct.js");
 /* harmony import */ var _features_navbar_Navigation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../features/navbar/Navigation */ "./client/features/navbar/Navigation.js");
@@ -5990,7 +5989,7 @@ var AppRoutes = function AppRoutes() {
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_SingleProduct__WEBPACK_IMPORTED_MODULE_6__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/cart",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_src_components_CartPage__WEBPACK_IMPORTED_MODULE_7___default()), null)
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_CartPage__WEBPACK_IMPORTED_MODULE_7__["default"], null)
   }), isLoggedIn && isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/admin",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_Admin_Admin__WEBPACK_IMPORTED_MODULE_8__["default"], null)
@@ -6029,7 +6028,7 @@ var AppRoutes = function AppRoutes() {
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_SingleProduct__WEBPACK_IMPORTED_MODULE_6__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/cart",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_src_components_CartPage__WEBPACK_IMPORTED_MODULE_7___default()), null)
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_CartPage__WEBPACK_IMPORTED_MODULE_7__["default"], null)
   }), isLoggedIn && isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/admin",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_components_Admin_Admin__WEBPACK_IMPORTED_MODULE_8__["default"], null)
@@ -6291,6 +6290,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * COMPONENT
 */
@@ -6302,7 +6302,16 @@ var Home = function Home(props) {
   var isLoggedIn = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return !!state.auth.me.id;
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Welcome ", username, ","), " ", !isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Welcome"), " "));
+  var videoId = 'L-C_-8LQ-78'; // Replace with the actual YouTube video ID
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Welcome ", username, ","), !isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Welcome"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
+    width: "560",
+    height: "315",
+    src: "https://www.youtube.com/embed/".concat(videoId, "?autoplay=1"),
+    frameborder: "0",
+    allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+    allowfullscreen: true
+  }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
@@ -7014,9 +7023,73 @@ var AllProducts = function AllProducts() {
 /*!************************************!*\
   !*** ./src/components/CartPage.js ***!
   \************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/obtainingzen/BrooklynStreetArt/src/components/CartPage.js: Unexpected token (5:1)\n\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { removeItemsFromCart\u001b[33m,\u001b[39m updateItemQuantity } \u001b[36mfrom\u001b[39m \u001b[32m\"../reducers/CartSlice\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLink\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"react-router-dom\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 8 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at instantiate (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:63:32)\n    at constructor (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:358:12)\n    at JSXParserMixin.raise (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:3255:19)\n    at JSXParserMixin.unexpected (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:3285:16)\n    at JSXParserMixin.jsxParseIdentifier (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6767:12)\n    at JSXParserMixin.jsxParseNamespacedName (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6774:23)\n    at JSXParserMixin.jsxParseElementName (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6783:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6863:22)\n    at JSXParserMixin.jsxParseElementAt (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6888:33)\n    at JSXParserMixin.jsxParseElement (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6957:17)\n    at JSXParserMixin.parseExprAtom (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:6969:19)\n    at JSXParserMixin.parseExprSubscripts (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10890:23)\n    at JSXParserMixin.parseUpdate (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10873:21)\n    at JSXParserMixin.parseMaybeUnary (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10849:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10687:61)\n    at JSXParserMixin.parseExprOps (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10692:23)\n    at JSXParserMixin.parseMaybeConditional (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10669:23)\n    at JSXParserMixin.parseMaybeAssign (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10630:21)\n    at JSXParserMixin.parseExpressionBase (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10584:23)\n    at /home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10580:39\n    at JSXParserMixin.allowInAnd (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12275:16)\n    at JSXParserMixin.parseExpression (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:10580:17)\n    at JSXParserMixin.parseStatementContent (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12733:23)\n    at JSXParserMixin.parseStatementLike (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12584:17)\n    at JSXParserMixin.parseModuleItem (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12561:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:13185:36)\n    at JSXParserMixin.parseBlockBody (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:13178:10)\n    at JSXParserMixin.parseProgram (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12460:10)\n    at JSXParserMixin.parseTopLevel (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:12450:25)\n    at JSXParserMixin.parse (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:14347:10)\n    at parse (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/parser/lib/index.js:14388:38)\n    at parser (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/core/lib/transformation/normalize-file.js:64:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/home/obtainingzen/BrooklynStreetArt/node_modules/@babel/core/lib/transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (/home/obtainingzen/BrooklynStreetArt/node_modules/gensync/index.js:261:32)\n    at /home/obtainingzen/BrooklynStreetArt/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/home/obtainingzen/BrooklynStreetArt/node_modules/gensync/index.js:223:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_CartSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/CartSlice */ "./src/reducers/CartSlice.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
+
+
+
+var CartPage = function CartPage() {
+  var cartItems = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.cart.items;
+  });
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [JSON.stringify(cartItems)]);
+  var handleDelete = function handleDelete(itemId) {
+    dispatch((0,_reducers_CartSlice__WEBPACK_IMPORTED_MODULE_2__.removeItemsFromCart)(itemId));
+  };
+  var handleQuantityChange = function handleQuantityChange(itemId, newQuantity) {
+    dispatch((0,_reducers_CartSlice__WEBPACK_IMPORTED_MODULE_2__.updateItemQuantity)({
+      itemId: itemId,
+      quantity: newQuantity
+    }));
+  };
+  var calculateItemTotalPrice = function calculateItemTotalPrice(item) {
+    var totalPrice = item.price / 100 * item.quantity;
+    return totalPrice.toFixed(2);
+  };
+  var calculateTotalPrice = function calculateTotalPrice() {
+    var totalPrice = cartItems.reduce(function (total, item) {
+      return total + item.price / 100 * item.quantity;
+    }, 0);
+    return totalPrice.toFixed(2);
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "My Cart"), cartItems.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Your cart is empty") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, cartItems.map(function (item) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+      key: item.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, item.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Quantity: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return handleQuantityChange(item.id, item.quantity - 1);
+      }
+    }, "-"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, " ", item.quantity, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return handleQuantityChange(item.id, item.quantity + 1);
+      }
+    }, "+")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "TotalPrice: $", calculateItemTotalPrice(item)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return handleDelete(item.id);
+      }
+    }, "Remove Item"));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Cart Total: $", calculateTotalPrice()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    to: "/Checkout"
+  }, "Checkout"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CartPage);
 
 /***/ }),
 
