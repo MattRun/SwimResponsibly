@@ -2,11 +2,16 @@ import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItemsFromCart, updateItemQuantity } from "../reducers/CartSlice";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
+
 
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart.items)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    }, [JSON.stringify(cartItems)])
 
     const handleDelete = (itemId) => {
         dispatch(removeItemsFromCart(itemId))
@@ -17,11 +22,12 @@ const CartPage = () => {
     }
   
     const calculateItemTotalPrice = (item) => {
-        return (item.price / 100) * item.quantity
+        const totalPrice = (item.price / 100) * item.quantity
+        return totalPrice.toFixed(2)
     }
     const calculateTotalPrice = () => {
-        return cartItems.reduce((total, item) => total + calculateItemTotalPrice(item), 0);
-        
+        const totalPrice = cartItems.reduce((total, item) => total + (item.price / 100) * item.quantity, 0);
+        return totalPrice.toFixed(2)
     };
     
 

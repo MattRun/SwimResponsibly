@@ -7,8 +7,23 @@ const Product = ({ product }) => {
  const dispatch = useDispatch()
 
  const handleAddToCart = () => {
-  dispatch(addItemToCart(product))
- }
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+  const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
+
+  if (existingItemIndex !== -1) {
+    // If the product exists, update its quantity
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[existingItemIndex].quantity += 1;
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  } else {
+    // If the product doesn't exist, add it to the cart
+    const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  }
+
+  dispatch(addItemToCart(product));
+};
 
   return (
     <div className='Product'>

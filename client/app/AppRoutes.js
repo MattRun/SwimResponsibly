@@ -13,11 +13,14 @@ import SingleProduct from '../../src/components/SingleProduct';
 import CartPage from '../../src/components/CartPage';
 import Payment from '../../src/components/Checkout/Checkout';
 import PaymentSuccess from '../../src/components/Checkout/PaymentSuccess';
-import PaymentCancel from '../../src/components/Checkout/PaymentCancel';
 
+
+import Admin from '../../src/components/Admin/Admin';
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isAdmin = useSelector((state) => !!state.auth.me.isAdmin);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,12 +46,33 @@ const AppRoutes = () => {
               path='/cart'
               element={<CartPage />}
             />
+             {isAdmin && <Route path="/admin" element={<Admin />} />} 
         </Routes>
       ) : (
         <Routes>
           <Route 
-          path="/" 
-          element={<Home />} 
+            path="/" 
+            element={<Home />} 
+          />
+          <Route
+            path="/login"
+            element={<AuthForm name="login" displayName="Login" />}
+          />
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="/signup"
+            element={<AuthForm name="signup" displayName="Sign Up" />}
+          />
+          <Route
+            path="/shop"
+            element={<AllProducts />}
+          />
+          <Route 
+            path='/shop/:productId' 
+            element={<SingleProduct />}
           />
             <Route
               path="/login"

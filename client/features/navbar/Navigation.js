@@ -5,18 +5,29 @@ import './navigation.styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../../src/store/index';
 import Home from "../home/Home";
-
+import Admin from "../../../src/components/Admin/Admin";
 
 const Navigation = () => {
-
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isAdmin = useSelector((state) => !!state.auth.me.isAdmin);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
     navigate('/home');
+    window.location.reload();
+
+    // localStorage.removeItem('cartItems')
+    // .then(() => {
+    //   navigate('/home');
+    // })
+    // .catch((error) => {
+    //   // Handle any errors that occurred while removing cart items
+    //   console.log(error);
+    // });
   };
- 
+
   return (
     <Fragment>
       <div className="navigation">
@@ -33,10 +44,16 @@ const Navigation = () => {
             <Link className="nav-link" to="/cart">
               CART
             </Link>
+            {isAdmin && <Link className="nav-link" to="/admin">
+              Admin
+            </Link>} 
+              <button type="button" className="fa-solid fa-cart-shopping">cart</button>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
+              
             </div>
+           
           </Fragment>
         ) : (
           <div className="nav-links-container">
