@@ -16,28 +16,27 @@ const SingleProduct = () => {
 
   const handleAddToCart = () => {
     dispatch(addItemToCart(singleProduct));
-  
+
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const updatedCartItems = [...cartItems, singleProduct];
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
   const formattedPrice = (singleProduct.price / 100).toFixed(2);
-  
 
   return (
-    <div className="SingleProduct">
-      <div className="singleProductContainer">
-        <h1>{singleProduct.title}</h1>
-        {singleProduct.artist && <span>Artist: {singleProduct.artist}</span>}
-        <span>Price: ${formattedPrice}</span>
-        <span>Description: {singleProduct.description}</span>
-        {singleProduct.videoUrl && (
-          <div className="singleProductVideo">
-            <div className="singleProductDisplay">
+    <div className="singleProductContainer">
+      <h1>{singleProduct.title}</h1>
+      <div className="singleProductContent">
+        <div className="singleProductDescription">
+          <span>{singleProduct.description}</span>
+        </div>
+        <div className="singleProductVideo">
+          <div className="singleProductDisplay">
+            {singleProduct.videoUrl && (
               <iframe
                 width="100%"
-                height="auto"
+                height="100%"
                 src={singleProduct.videoUrl}
                 title="Video"
                 frameBorder="0"
@@ -45,10 +44,13 @@ const SingleProduct = () => {
                 allowFullScreen
                 muted
               ></iframe>
-            </div>
+            )}
           </div>
-        )}
-        <button type="button" onClick={handleAddToCart}>Add to Cart</button>
+        </div>
+        <div className="singleProductDetails">
+          <span>Price: ${formattedPrice}</span>
+          <button type="button" onClick={handleAddToCart}>Add to Cart</button>
+        </div>
       </div>
     </div>
   );

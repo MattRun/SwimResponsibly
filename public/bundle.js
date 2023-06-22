@@ -7233,6 +7233,7 @@ var Product = function Product(_ref) {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
   var handleAddToCart = function handleAddToCart() {
     var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    alert("added to cart");
     var existingItemIndex = cartItems.findIndex(function (item) {
       return item.id === product.id;
     });
@@ -7325,26 +7326,30 @@ var SingleProduct = function SingleProduct() {
   };
   var formattedPrice = (singleProduct.price / 100).toFixed(2);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "SingleProduct"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "singleProductContainer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), singleProduct.artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Artist: ", singleProduct.artist), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Price: $", formattedPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Description: ", singleProduct.description), singleProduct.videoUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, singleProduct.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "singleProductContent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "singleProductDescription"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, singleProduct.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "singleProductVideo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "singleProductDisplay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
+  }, singleProduct.videoUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
     width: "100%",
-    height: "auto",
+    height: "100%",
     src: singleProduct.videoUrl,
     title: "Video",
     frameBorder: "0",
     allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
     allowFullScreen: true,
     muted: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "singleProductDetails"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Price: $", formattedPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: handleAddToCart
-  }, "Add to Cart")));
+  }, "Add to Cart"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleProduct);
 
@@ -8229,9 +8234,34 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts1 {
   padding: 20px;
-  border: 1px solid #ccc; /* Add border style */
+  border: 1px solid #ccc;
 }
 
+.productGrid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  animation: cascadeFadeIn 1s ease-in-out;
+}
+
+@keyframes cascadeFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .header {
   font-size: 36px; /* Increase font size */
   font-weight: bold;
@@ -8254,13 +8284,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts1 {
   font-size: 20px; /* Increase font size */
   font-style: italic;
   color: black;
-}
-
-.productGrid1 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/AllProducts.scss"],"names":[],"mappings":"AAkBA;EACI,aAAA;EACA,sBAAA,EAAA,qBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,iBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;AAjBJ;;AAoBE;EACE,0BAAA,EAAA,oCAAA;EACA,cAAA,EAAA,gCAAA;AAjBJ;;AAoBE;EACE,kBAAA;EACA,mBAAA;AAjBJ;;AAoBE;EACE,eAAA,EAAA,uBAAA;EACA,kBAAA;EACA,YAAA;AAjBJ;;AAoBE;EACE,aAAA;EACA,2DAAA;EACA,cAAA;AAjBJ","sourcesContent":["// .rows:after{\n//     content: \"\";\n//     display: table;\n//     clear: both;\n// }\n\n// .AllProducts { /* Updated selector */\n//     display: flex;\n//     flex-wrap: wrap;\n//     flex-direction: column;\n//     align-items: center;\n//   }\n  \n//   .AllProducts > * { /* Updated selector */\n//     flex: 0 0 calc(33.33% - 10px);\n//     margin: 5px;\n//   }\n\n.AllProducts1 {\n    padding: 20px;\n    border: 1px solid #ccc; /* Add border style */\n  }\n  \n  .header {\n    font-size: 36px; /* Increase font size */\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n    color: black;\n  }\n  \n  .separator {\n    border-top: 2px solid #ccc; /* Add a horizontal line separator */\n    margin: 20px 0; /* Adjust the margin as needed */\n  }\n  \n  .quote {\n    text-align: center;\n    margin-bottom: 20px;\n  }\n  \n  .quote p {\n    font-size: 20px; /* Increase font size */\n    font-style: italic;\n    color: black;\n  }\n  \n  .productGrid1 {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    grid-gap: 20px;\n  }\n  "],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/AllProducts.scss"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;AACF;;AAEA;EACE,aAAA;EACA,2DAAA;EACA,cAAA;EACA,uCAAA;AACF;;AAEA;EACE;IACE,UAAA;IACA,2BAAA;EACF;EACA;IACE,UAAA;IACA,wBAAA;EACF;AACF;AAeA;EACE;IACE,UAAA;EAbF;EAeA;IACE,UAAA;EAbF;AACF;AAoCE;EACE,eAAA,EAAA,uBAAA;EACA,iBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;AAlCJ;;AAqCE;EACE,0BAAA,EAAA,oCAAA;EACA,cAAA,EAAA,gCAAA;AAlCJ;;AAqCE;EACE,kBAAA;EACA,mBAAA;AAlCJ;;AAqCE;EACE,eAAA,EAAA,uBAAA;EACA,kBAAA;EACA,YAAA;AAlCJ","sourcesContent":[".AllProducts1 {\n  padding: 20px;\n  border: 1px solid #ccc;\n}\n\n.productGrid1 {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-gap: 20px;\n  animation: cascadeFadeIn 1s ease-in-out;\n}\n\n@keyframes cascadeFadeIn {\n  0% {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n// .product {\n//   display: flex;\n//   flex-direction: column;\n//   align-items: center;\n//   padding: 10px;\n//   position: relative;\n//   background-color: #0C120C;\n//   border-radius: 5px;\n//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n//   border: 2px solid #C20114;\n//   animation: fadeIn 0.5s ease-in-out;\n// }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n\n\n// .AllProducts1 {\n//     padding: 20px;\n//     border: 1px solid #ccc; /* Add border style */\n//     animation: fadeIn 1s ease-in-out;\n//   }\n\n\n// @keyframes fadeIn {\n//   0% {\n//     opacity: 0;\n//     transform: translateY(20px);\n//   }\n//   100% {\n//     opacity: 1;\n//     transform: translateY(0);\n//   }\n// }\n  \n  .header {\n    font-size: 36px; /* Increase font size */\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n    color: black;\n  }\n  \n  .separator {\n    border-top: 2px solid #ccc; /* Add a horizontal line separator */\n    margin: 20px 0; /* Adjust the margin as needed */\n  }\n  \n  .quote {\n    text-align: center;\n    margin-bottom: 20px;\n  }\n  \n  .quote p {\n    font-size: 20px; /* Increase font size */\n    font-style: italic;\n    color: black;\n  }\n  \n  // .productGrid1 {\n  //   display: grid;\n  //   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  //   grid-gap: 20px;\n  // }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8311,9 +8335,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border: 2px solid #C20114;
   transition: transform 0.3s;
+  animation: fadeIn 0.5s ease-in-out;
 }
 .Product:hover {
-  transform: scale(1.4);
+  transform: scale(1.2);
   z-index: 1;
 }
 .Product .productTitle {
@@ -8362,7 +8387,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
 
 body {
   margin: 0 20px;
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,cAAA,EAAA,6DAAA;AACF;;AAEA;EACE,aAAA;EACA,2DAAA;EACA,cAAA;EACA,gBAAA;EACA,qBAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,yBAAA;EACA,kBAAA;EACA,sCAAA;EACA,yBAAA;EACA,0BAAA;AACF;AACE;EACE,qBAAA;EACA,UAAA;AACJ;AAEE;EACE,mBAAA;EACA,sCAAA;EACA,mBAAA;EACA,yBAAA;AAAJ;AAEI;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA;AAAN;AAEM;EACE,cAAA;EACA,qBAAA;AAAR;AAEQ;EAEE,cAAA;EACA,0BAAA;AADV;AAOE;EACE,WAAA;EACA,YAAA;EACA,kBAAA;EACA,gBAAA;AALJ;AAQE;EACE,WAAA;EACA,YAAA;AANJ;AASE;EACE,yBAAA;EACA,cAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPJ;;AAWA;EACE,cAAA;AARF","sourcesContent":[".AllProducts {\n  text-align: center;\n  overflow: auto; /* Add overflow property to enable scrolling when necessary */\n}\n\n.productGrid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  grid-gap: 40px;\n  margin-top: 20px;\n  justify-items: center;\n}\n\n.Product {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n  position: relative;\n  background-color: #0C120C;\n  border-radius: 5px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  border: 2px solid #C20114;\n  transition: transform 0.3s;\n\n  &:hover {\n    transform: scale(1.4);\n    z-index: 1;\n  }\n\n  .productTitle {\n    border-radius: 10px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n    margin-bottom: 10px;\n    background-color: #C20114;\n\n    h3 {\n      margin: 0;\n      padding: 2px 16px;\n      font-family: \"Arial\", sans-serif;\n      font-size: 18px;\n      background-color: transparent;\n      color: #0C120C;\n\n      a {\n        color: #0C120C;\n        text-decoration: none;\n\n        &:hover,\n        &:active {\n          color: #ECEBF3;\n          text-decoration: underline;\n        }\n      }\n    }\n  }\n\n  .productVideo {\n    width: 100%;\n    height: auto;\n    margin-bottom: 2px;\n    max-width: 400px;\n  }\n\n  .allProductDisplay {\n    width: 100%;\n    height: 100%;\n  }\n\n  button {\n    background-color: #C20114;\n    color: #0C120C;\n    border: none;\n    padding: 8px 16px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 12px;\n    cursor: pointer;\n  }\n}\n\nbody {\n  margin: 0 20px;\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,cAAA,EAAA,6DAAA;AACF;;AAEA;EACE,aAAA;EACA,2DAAA;EACA,cAAA;EACA,gBAAA;EACA,qBAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,yBAAA;EACA,kBAAA;EACA,sCAAA;EACA,yBAAA;EACA,0BAAA;EACA,kCAAA;AACF;AACE;EACE,qBAAA;EACA,UAAA;AACJ;AAEE;EACE,mBAAA;EACA,sCAAA;EACA,mBAAA;EACA,yBAAA;AAAJ;AAEI;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA;AAAN;AAEM;EACE,cAAA;EACA,qBAAA;AAAR;AAEQ;EAEE,cAAA;EACA,0BAAA;AADV;AAOE;EACE,WAAA;EACA,YAAA;EACA,kBAAA;EACA,gBAAA;AALJ;AAQE;EACE,WAAA;EACA,YAAA;AANJ;AASE;EACE,yBAAA;EACA,cAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPJ;;AAWA;EACE,cAAA;AARF","sourcesContent":[".AllProducts {\n  text-align: center;\n  overflow: auto; /* Add overflow property to enable scrolling when necessary */\n}\n\n.productGrid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  grid-gap: 40px;\n  margin-top: 20px;\n  justify-items: center;\n}\n\n.Product {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n  position: relative;\n  background-color: #0C120C;\n  border-radius: 5px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  border: 2px solid #C20114;\n  transition: transform 0.3s;\n  animation: fadeIn 0.5s ease-in-out;\n\n  &:hover {\n    transform: scale(1.2);\n    z-index: 1;\n  }\n\n  .productTitle {\n    border-radius: 10px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n    margin-bottom: 10px;\n    background-color: #C20114;\n\n    h3 {\n      margin: 0;\n      padding: 2px 16px;\n      font-family: \"Arial\", sans-serif;\n      font-size: 18px;\n      background-color: transparent;\n      color: #0C120C;\n\n      a {\n        color: #0C120C;\n        text-decoration: none;\n\n        &:hover,\n        &:active {\n          color: #ECEBF3;\n          text-decoration: underline;\n        }\n      }\n    }\n  }\n\n  .productVideo {\n    width: 100%;\n    height: auto;\n    margin-bottom: 2px;\n    max-width: 400px;\n  }\n\n  .allProductDisplay {\n    width: 100%;\n    height: 100%;\n  }\n\n  button {\n    background-color: #C20114;\n    color: #0C120C;\n    border: none;\n    padding: 8px 16px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 12px;\n    cursor: pointer;\n  }\n}\n\nbody {\n  margin: 0 20px;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8389,34 +8414,35 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.SingleProduct {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Set the height to 100% of the viewport */
-  background-color: #f2f2f2;
-}
-
-.singleProductContainer {
+___CSS_LOADER_EXPORT___.push([module.id, `.singleProductContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #0C120C;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
+  width: 800px; /* Adjust the width to your desired value */
+  color: #C20114;
 }
 
-.singleProductContainer h1 {
+.singleProductContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.singleProductDescription {
+  text-align: left;
   margin-bottom: 10px;
+  color: #C20114;
 }
 
 .singleProductVideo {
   width: 100%;
-  height: 0;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   position: relative;
   margin-bottom: 20px;
@@ -8424,10 +8450,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.SingleProduct {
 
 .singleProductDisplay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .singleProductDisplay iframe {
@@ -8435,27 +8465,26 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.SingleProduct {
   height: 100%;
 }
 
-.productInfo {
+.singleProductDetails {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.productInfo span {
-  margin-bottom: 10px;
+.singleProductDetails span {
+  margin-right: 10px;
 }
 
-.productInfo button {
-  background-color: #4caf50;
+.singleProductDetails button {
+  background-color: #C20114;
   color: white;
   border: none;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/SingleProducts.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,aAAA,EAAA,2CAAA;EACA,yBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,kBAAA;EACA,wCAAA;EACA,YAAA;AACJ;;AAEE;EACE,mBAAA;AACJ;;AAEE;EACE,WAAA;EACA,SAAA;EACA,sBAAA,EAAA,sBAAA;EACA,kBAAA;EACA,mBAAA;AACJ;;AAEE;EACE,kBAAA;EACA,MAAA;EACA,OAAA;EACA,WAAA;EACA,YAAA;AACJ;;AAEE;EACE,WAAA;EACA,YAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;AACJ;;AAEE;EACE,mBAAA;AACJ;;AAEE;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AACJ","sourcesContent":[".SingleProduct {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    height: 100vh; /* Set the height to 100% of the viewport */\n    background-color: #f2f2f2;\n  }\n  \n  .singleProductContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    padding: 20px;\n    background-color: #fff;\n    border-radius: 5px;\n    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);\n    margin: 20px;\n  }\n  \n  .singleProductContainer h1 {\n    margin-bottom: 10px;\n  }\n  \n  .singleProductVideo {\n    width: 100%;\n    height: 0;\n    padding-bottom: 56.25%; /* 16:9 aspect ratio */\n    position: relative;\n    margin-bottom: 20px;\n  }\n  \n  .singleProductDisplay {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n  }\n  \n  .singleProductDisplay iframe {\n    width: 100%;\n    height: 100%;\n  }\n  \n  .productInfo {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  \n  .productInfo span {\n    margin-bottom: 10px;\n  }\n  \n  .productInfo button {\n    background-color: #4caf50;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    cursor: pointer;\n  }\n  \n\n  "],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/SingleProducts.scss"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,kBAAA;EACA,aAAA;EACA,yBAAA;EACA,kBAAA;EACA,YAAA;EACA,YAAA,EAAA,2CAAA;EACA,cAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,WAAA;AACF;;AAEA;EACE,gBAAA;EACA,mBAAA;EACA,cAAA;AACF;;AAEA;EACE,WAAA;EACA,sBAAA,EAAA,sBAAA;EACA,kBAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;EACA,WAAA;EACA,YAAA;EACA,gBAAA;EACA,kBAAA;EACA,wCAAA;AACF;;AAEA;EACE,WAAA;EACA,YAAA;AACF;;AAEA;EACE,aAAA;EACA,mBAAA;EACA,yBAAA;AACF;;AAEA;EACE,kBAAA;AACF;;AAEA;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AACF","sourcesContent":[".singleProductContainer {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  padding: 20px;\n  background-color: #0C120C;\n  border-radius: 5px;\n  margin: 20px;\n  width: 800px; /* Adjust the width to your desired value */\n  color:#C20114 ;\n}\n\n.singleProductContent {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n\n.singleProductDescription {\n  text-align: left;\n  margin-bottom: 10px;\n  color: #C20114;\n}\n\n.singleProductVideo {\n  width: 100%;\n  padding-bottom: 56.25%; /* 16:9 aspect ratio */\n  position: relative;\n  margin-bottom: 20px;\n}\n\n.singleProductDisplay {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  border-radius: 5px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);\n}\n\n.singleProductDisplay iframe {\n  width: 100%;\n  height: 100%;\n}\n\n.singleProductDetails {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.singleProductDetails span {\n  margin-right: 10px;\n}\n\n.singleProductDetails button {\n  background-color: #C20114;\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  text-align: center;\n  text-decoration: none;\n  font-size: 16px;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

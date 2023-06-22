@@ -10,6 +10,7 @@ const Product = ({ product }) => {
 
  const handleAddToCart = () => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  alert("added to cart")
 
   const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
 
