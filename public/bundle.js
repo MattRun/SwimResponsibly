@@ -8289,12 +8289,13 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   text-align: center;
+  overflow: auto; /* Add overflow property to enable scrolling when necessary */
 }
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */
-  grid-gap: 40px; /* Adjust the gap between products */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 40px;
   margin-top: 20px;
   justify-items: center;
 }
@@ -8304,17 +8305,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  position: relative; /* Add position property for stacking the borders */
-  background-color: #0C120C; /* Background color for the additional border */
+  position: relative;
+  background-color: #0C120C;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */
-  border: 2px solid #C20114; /* Add another border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #C20114;
+  transition: transform 0.3s;
+}
+.Product:hover {
+  transform: scale(1.4);
+  z-index: 1;
 }
 .Product .productTitle {
-  border-radius: 10px; /* Adjust the border-radius for the title */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */
-  margin-bottom: 10px; /* Adjust margin-bottom for spacing */
-  background-color: #C20114; /* Change the background color for the title */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  background-color: #C20114;
 }
 .Product .productTitle h3 {
   margin: 0;
@@ -8322,21 +8328,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
   font-family: "Arial", sans-serif;
   font-size: 18px;
   background-color: transparent;
-  color: #0C120C; /* Change the color of the words in the title */
+  color: #0C120C;
 }
 .Product .productTitle h3 a {
-  color: #0C120C; /* Change the color of the hyperlink title */
-  text-decoration: none; /* Remove underline */
+  color: #0C120C;
+  text-decoration: none;
 }
 .Product .productTitle h3 a:hover, .Product .productTitle h3 a:active {
-  color: #ECEBF3; /* Change the hover color of the hyperlink title */
-  text-decoration: underline; /* Add underline on hover */
+  color: #ECEBF3;
+  text-decoration: underline;
 }
 .Product .productVideo {
-  width: 100%; /* Adjust width as per your preference */
-  height: auto; /* Adjust height as per your preference */
-  margin-bottom: 2px; /* Adjust margin-bottom as per your preference */
-  max-width: 400px; /* Set a maximum width for the video */
+  width: 100%;
+  height: auto;
+  margin-bottom: 2px;
+  max-width: 400px;
 }
 .Product .allProductDisplay {
   width: 100%;
@@ -8355,8 +8361,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.AllProducts {
 }
 
 body {
-  margin: 0 20px; /* Add left and right margin */
-}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;;AAEE;EACE,aAAA;EACA,2DAAA,EAAA,gDAAA;EACA,cAAA,EAAA,oCAAA;EACA,gBAAA;EACA,qBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA,EAAA,mDAAA;EACA,yBAAA,EAAA,+CAAA;EACA,kBAAA;EACA,sCAAA,EAAA,yCAAA;EACA,yBAAA,EAAA,uBAAA;AACJ;AACI;EACE,mBAAA,EAAA,2CAAA;EACA,sCAAA,EAAA,6BAAA;EACA,mBAAA,EAAA,qCAAA;EACA,yBAAA,EAAA,8CAAA;AACN;AACM;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA,EAAA,+CAAA;AACR;AAEQ;EACE,cAAA,EAAA,4CAAA;EACA,qBAAA,EAAA,qBAAA;AAAV;AAEU;EAEE,cAAA,EAAA,kDAAA;EACA,0BAAA,EAAA,2BAAA;AADZ;AAOI;EACE,WAAA,EAAA,wCAAA;EACA,YAAA,EAAA,yCAAA;EACA,kBAAA,EAAA,gDAAA;EACA,gBAAA,EAAA,sCAAA;AALN;AAQI;EACE,WAAA;EACA,YAAA;AANN;AASI;EACE,yBAAA;EACA,cAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPN;;AAaE;EACE,cAAA,EAAA,8BAAA;AAVJ","sourcesContent":[".AllProducts {\n    text-align: center;\n  }\n  \n  .productGrid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with minimum width of 280px */\n    grid-gap: 40px; /* Adjust the gap between products */\n    margin-top: 20px;\n    justify-items: center;\n  }\n  \n  .Product {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 10px;\n    position: relative; /* Add position property for stacking the borders */\n    background-color: #0C120C; /* Background color for the additional border */\n    border-radius: 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the additional border */\n    border: 2px solid #C20114; /* Add another border */\n  \n    .productTitle {\n      border-radius: 10px; /* Adjust the border-radius for the title */\n      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the title */\n      margin-bottom: 10px; /* Adjust margin-bottom for spacing */\n      background-color: #C20114; /* Change the background color for the title */\n  \n      h3 {\n        margin: 0;\n        padding: 2px 16px;\n        font-family: \"Arial\", sans-serif;\n        font-size: 18px;\n        background-color: transparent;\n        color: #0C120C; /* Change the color of the words in the title */\n        // border: none; /* Remove border properties for the title */\n  \n        a {\n          color: #0C120C; /* Change the color of the hyperlink title */\n          text-decoration: none; /* Remove underline */\n  \n          &:hover,\n          &:active {\n            color: #ECEBF3; /* Change the hover color of the hyperlink title */\n            text-decoration: underline; /* Add underline on hover */\n          }\n        }\n      }\n    }\n  \n    .productVideo {\n      width: 100%; /* Adjust width as per your preference */\n      height: auto; /* Adjust height as per your preference */\n      margin-bottom: 2px; /* Adjust margin-bottom as per your preference */\n      max-width: 400px; /* Set a maximum width for the video */\n    }\n  \n    .allProductDisplay {\n      width: 100%;\n      height: 100%;\n    }\n  \n    button {\n      background-color: #C20114;\n      color: #0C120C;\n      border: none;\n      padding: 8px 16px;\n      text-align: center;\n      text-decoration: none;\n      display: inline-block;\n      font-size: 12px;\n      cursor: pointer;\n    }\n  }\n  \n\n\n  body {\n    margin: 0 20px; /* Add left and right margin */\n  }\n  \n"],"sourceRoot":""}]);
+  margin: 0 20px;
+}`, "",{"version":3,"sources":["webpack://./src/components/scss/Product.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,cAAA,EAAA,6DAAA;AACF;;AAEA;EACE,aAAA;EACA,2DAAA;EACA,cAAA;EACA,gBAAA;EACA,qBAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,yBAAA;EACA,kBAAA;EACA,sCAAA;EACA,yBAAA;EACA,0BAAA;AACF;AACE;EACE,qBAAA;EACA,UAAA;AACJ;AAEE;EACE,mBAAA;EACA,sCAAA;EACA,mBAAA;EACA,yBAAA;AAAJ;AAEI;EACE,SAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;EACA,6BAAA;EACA,cAAA;AAAN;AAEM;EACE,cAAA;EACA,qBAAA;AAAR;AAEQ;EAEE,cAAA;EACA,0BAAA;AADV;AAOE;EACE,WAAA;EACA,YAAA;EACA,kBAAA;EACA,gBAAA;AALJ;AAQE;EACE,WAAA;EACA,YAAA;AANJ;AASE;EACE,yBAAA;EACA,cAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,qBAAA;EACA,qBAAA;EACA,eAAA;EACA,eAAA;AAPJ;;AAWA;EACE,cAAA;AARF","sourcesContent":[".AllProducts {\n  text-align: center;\n  overflow: auto; /* Add overflow property to enable scrolling when necessary */\n}\n\n.productGrid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  grid-gap: 40px;\n  margin-top: 20px;\n  justify-items: center;\n}\n\n.Product {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n  position: relative;\n  background-color: #0C120C;\n  border-radius: 5px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  border: 2px solid #C20114;\n  transition: transform 0.3s;\n\n  &:hover {\n    transform: scale(1.4);\n    z-index: 1;\n  }\n\n  .productTitle {\n    border-radius: 10px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n    margin-bottom: 10px;\n    background-color: #C20114;\n\n    h3 {\n      margin: 0;\n      padding: 2px 16px;\n      font-family: \"Arial\", sans-serif;\n      font-size: 18px;\n      background-color: transparent;\n      color: #0C120C;\n\n      a {\n        color: #0C120C;\n        text-decoration: none;\n\n        &:hover,\n        &:active {\n          color: #ECEBF3;\n          text-decoration: underline;\n        }\n      }\n    }\n  }\n\n  .productVideo {\n    width: 100%;\n    height: auto;\n    margin-bottom: 2px;\n    max-width: 400px;\n  }\n\n  .allProductDisplay {\n    width: 100%;\n    height: 100%;\n  }\n\n  button {\n    background-color: #C20114;\n    color: #0C120C;\n    border: none;\n    padding: 8px 16px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 12px;\n    cursor: pointer;\n  }\n}\n\nbody {\n  margin: 0 20px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
