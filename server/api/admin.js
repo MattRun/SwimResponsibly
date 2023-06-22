@@ -35,7 +35,7 @@ router.get('/:id', async (req, res, next) => {
 // PUT /api/campuses/:id
 router.put('/:id', async (req, res, next) => {
   try {
-    const { title, artist, year, description, price, imageUrl } = req.body;
+    const { title, artist, year, description, price, videoUrl } = req.body;
 
     const product = await Product.findByPk(req.params.id);
 
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res, next) => {
 
     // Update the product details
     const updateResult = await Product.update(
-      { title, artist, year, description, price, imageUrl },
+      { title, artist, year, description, price, videoUrl },
       { where: { id: req.params.id } }
     );
 
