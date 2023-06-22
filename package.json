@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
+    "react-youtube": "^10.1.0",
     "sass": "^1.63.4",
     "sequelize": "^6.25.3",
     "stripe": "^12.9.0",
