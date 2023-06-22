@@ -1,21 +1,28 @@
-import React from "react";
+import React,{useState} from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteProduct } from "../../reducers/admin/AdminAllProductsSlice";
-import './scss/Product.styles.scss'
+import "./scss/Product.styles.scss";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
-
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const handleDeleteProduct = async (productId) => {
+    setShowConfirmation(true);
+  };
+  const confirmDeleteProduct = async () => {
     try {
-      await dispatch(deleteProduct(productId));
+      await dispatch(deleteProduct(product.id));
       console.log("Product deleted successfully");
       // Additional actions or logic after successful deletion
     } catch (error) {
       console.log("Error deleting Product:", error);
       // Handle error, if needed
     }
+    setShowConfirmation(false);
+  };
+  const cancelDeleteProduct = () => {
+    setShowConfirmation(false);
   };
 
   return (
@@ -35,7 +42,7 @@ const Product = ({ product }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            muted 
+            muted
           />
         </div>
       </div>
@@ -45,6 +52,13 @@ const Product = ({ product }) => {
       <button type="button" onClick={() => handleDeleteProduct(product.id)}>
         Delete
       </button>
+      {showConfirmation && (
+        <div className="confirmation-modal">
+          <p>Are you sure you want to delete this product?</p>
+          <button onClick={confirmDeleteProduct}>Yes</button>
+          <button onClick={cancelDeleteProduct}>No</button>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,7 +5,6 @@ import {
   selectProducts
 } from "../../reducers/admin/AdminAllProductsSlice";
 import Product from "./Product";
-import AddProductForm from "./AddFeature/AddProductForm";
 import { v4 as uuidv4 } from 'uuid';
 import "./scss/AllProduct.scss"
 const AllProducts = () => {
