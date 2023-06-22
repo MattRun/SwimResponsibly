@@ -1,8 +1,14 @@
-body {
+/* body {
   font-family: sans-serif;
-  background: #aaa;
+  background-size: cover;
+  background-image: url('./assets/gifs/background.jpg');
+  background-repeat: repeat;
+} */
+body{
+  background-image: url('./assets/gifs/background.jpg');
+  background-repeat: repeat;
+  background-size: cover;
 }
-
 a {
   text-decoration: none;
 }
@@ -19,4 +25,8 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+*{
+  box-sizing: border-box;
 }

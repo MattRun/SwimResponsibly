@@ -5,7 +5,9 @@ import {
   selectProducts
 } from "../../reducers/admin/AdminAllProductsSlice";
 import Product from "./Product";
-
+import AddProductForm from "./AddFeature/AddProductForm";
+import { v4 as uuidv4 } from 'uuid';
+import "./scss/AllProduct.scss"
 const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
@@ -15,11 +17,13 @@ const AllProducts = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
-    </div>
+  
+      <div className="productGrid1">
+        {products.map((product) => (
+          <Product key={uuidv4()} product={product} />
+        ))}
+      </div>
+   
   );
 };
 

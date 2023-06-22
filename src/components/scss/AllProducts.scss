@@ -1,0 +1,53 @@
+// .rows:after{
+//     content: "";
+//     display: table;
+//     clear: both;
+// }
+
+// .AllProducts { /* Updated selector */
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+  
+//   .AllProducts > * { /* Updated selector */
+//     flex: 0 0 calc(33.33% - 10px);
+//     margin: 5px;
+//   }
+
+.AllProducts1 {
+    padding: 20px;
+    border: 1px solid #ccc; /* Add border style */
+  }
+  
+  .header {
+    font-size: 36px; /* Increase font size */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .separator {
+    border-top: 2px solid #ccc; /* Add a horizontal line separator */
+    margin: 20px 0; /* Adjust the margin as needed */
+  }
+  
+  .quote {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .quote p {
+    font-size: 20px; /* Increase font size */
+    font-style: italic;
+    color: black;
+  }
+  
+  .productGrid1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+  

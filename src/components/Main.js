@@ -1,10 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// link makes it clickable ^
 import HomePage from './HomePage';
 import AllProduct from './AllProduct';
-import {SingleProduct} from './index'
+
 
 const Main = () => {
     return (
@@ -14,9 +13,6 @@ const Main = () => {
 
                 <Link to='/'><h3>HomePage</h3></Link>
                 <Link to='/shop'><h3>Gallery</h3></Link>
-                {/* aka all products^ */}
-                {/* <Link to='/students'><h3>Artists</h3></Link> */}
-                {/* if we want all artist and single artist to be clickable */}
                 
                 </ul>
             </nav>

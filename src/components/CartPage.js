@@ -2,8 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItemsFromCart, updateItemQuantity } from "../reducers/CartSlice";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae962689570a5d6ffb98051fb0b539ae28a2d5a7
 
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart.items)
